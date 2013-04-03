@@ -9,10 +9,10 @@ package com.codeon.movierate.movie
  */
 class Director extends Person {
 
-    static hasMany = [movies: Movie]
+//    static hasMany = [movies: Movie]
 
     static mapping = {
-        movies joinTable: [name: "mm_directors_movies", key: 'mm_director_id']
+//        movies joinTable: [name: "mm_directors_movies", key: 'mm_director_id']
         lastName column: '`lastname`'
     }
 

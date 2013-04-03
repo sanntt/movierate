@@ -13,7 +13,7 @@ class Movie {
     String plot
     String poster
 
-    static belongsTo = [Actor, Genre, Director]
+    // static belongsTo = [Actor, Genre, Director]
 
     static hasMany = [
             actors: Actor,
@@ -29,8 +29,8 @@ class Movie {
     }
 
     static mapping = {
-        genres joinTable: [name: "mm_genres_movies", key: 'mm_movie_id']
-        actors joinTable: [name: "mm_actors_movies", key: 'mm_movie_id']
-        directors joinTable: [name: "mm_directors_movies", key: 'mm_movie_id']
+//        genres joinTable: [name: "mm_genres_movies", key: 'mm_movie_id']
+//        actors joinTable: [name: "mm_actors_movies", key: 'mm_movie_id']
+//        directors joinTable: [name: "mm_directors_movies", key: 'mm_movie_id']
     }
 }

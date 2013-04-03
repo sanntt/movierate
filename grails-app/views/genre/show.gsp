@@ -23,17 +23,6 @@
 			</g:if>
 			<ol class="property-list genre">
 			
-				<g:if test="${genreInstance?.movies}">
-				<li class="fieldcontain">
-					<span id="movies-label" class="property-label"><g:message code="genre.movies.label" default="Movies" /></span>
-					
-						<g:each in="${genreInstance.movies}" var="m">
-						<span class="property-value" aria-labelledby="movies-label"><g:link controller="movie" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${genreInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="genre.name.label" default="Name" /></span>

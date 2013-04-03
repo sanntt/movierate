@@ -9,11 +9,11 @@ package com.codeon.movierate.movie
  */
 class Actor extends Person {
 
-    static hasMany = [movies: Movie]
+//    static hasMany = [movies: Movie]
 
     static mapping = {
         lastName column: '`lastname`'
-        movies joinTable: [name: "mm_actors_movies", key: 'mm_actor_id']
+//        movies joinTable: [name: "mm_actors_movies", key: 'mm_actor_id']
     }
 
     String toString() {

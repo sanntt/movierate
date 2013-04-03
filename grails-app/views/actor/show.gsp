@@ -32,17 +32,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${actorInstance?.movies}">
-				<li class="fieldcontain">
-					<span id="movies-label" class="property-label"><g:message code="actor.movies.label" default="Movies" /></span>
-					
-						<g:each in="${actorInstance.movies}" var="m">
-						<span class="property-value" aria-labelledby="movies-label"><g:link controller="movie" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${actorInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="actor.name.label" default="Name" /></span>

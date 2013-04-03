@@ -10,10 +10,10 @@ package com.codeon.movierate.movie
 class Genre {
     String name
 
-    static hasMany = [movies: Movie]
+//    static hasMany = [movies: Movie]
 
     static mapping = {
-        movies joinTable: [name: "mm_genres_movies", key: 'mm_genre_id']
+//        movies joinTable: [name: "mm_genres_movies", key: 'mm_genre_id']
     }
 
     String toString() {
