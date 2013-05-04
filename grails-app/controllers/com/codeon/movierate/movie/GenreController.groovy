@@ -1,7 +1,9 @@
 package com.codeon.movierate.movie
 
+import grails.plugins.springsecurity.Secured
 import org.springframework.dao.DataIntegrityViolationException
 
+@Secured(['ROLE_USER', 'ROLE_ADMIN'])
 class GenreController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -15,10 +17,12 @@ class GenreController {
         [genreInstanceList: Genre.list(params), genreInstanceTotal: Genre.count()]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def create() {
         [genreInstance: new Genre(params)]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def save() {
         def genreInstance = new Genre(params)
         if (!genreInstance.save(flush: true)) {
@@ -41,6 +45,7 @@ class GenreController {
         [genreInstance: genreInstance]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def edit(Long id) {
         def genreInstance = Genre.get(id)
         if (!genreInstance) {
@@ -52,6 +57,7 @@ class GenreController {
         [genreInstance: genreInstance]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def update(Long id, Long version) {
         def genreInstance = Genre.get(id)
         if (!genreInstance) {
@@ -81,6 +87,7 @@ class GenreController {
         redirect(action: "show", id: genreInstance.id)
     }
 
+    @Secured(['ROLE_ADMIN'])
     def delete(Long id) {
         def genreInstance = Genre.get(id)
         if (!genreInstance) {

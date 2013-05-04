@@ -1,7 +1,9 @@
 package com.codeon.movierate.movie
 
+import grails.plugins.springsecurity.Secured
 import org.springframework.dao.DataIntegrityViolationException
 
+@Secured(['ROLE_USER', 'ROLE_ADMIN'])
 class DirectorController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -15,10 +17,12 @@ class DirectorController {
         [directorInstanceList: Director.list(params), directorInstanceTotal: Director.count()]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def create() {
         [directorInstance: new Director(params)]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def save() {
         def directorInstance = new Director(params)
         if (!directorInstance.save(flush: true)) {
@@ -41,6 +45,7 @@ class DirectorController {
         [directorInstance: directorInstance]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def edit(Long id) {
         def directorInstance = Director.get(id)
         if (!directorInstance) {
@@ -52,6 +57,7 @@ class DirectorController {
         [directorInstance: directorInstance]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def update(Long id, Long version) {
         def directorInstance = Director.get(id)
         if (!directorInstance) {
@@ -81,6 +87,7 @@ class DirectorController {
         redirect(action: "show", id: directorInstance.id)
     }
 
+    @Secured(['ROLE_ADMIN'])
     def delete(Long id) {
         def directorInstance = Director.get(id)
         if (!directorInstance) {

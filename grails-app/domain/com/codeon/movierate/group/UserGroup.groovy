@@ -11,11 +11,18 @@ import com.codeon.movierate.user.User
  * To change this template use File | Settings | File Templates.
  */
 class UserGroup {
+    String name
     User owner
-    List<Administrator> administrator
-    List<Moderator> moderators
-    List<User> users
-    List<Movie> movies
 
+    static hasMany = [
+            administrators: Administrator,
+            moderators: Moderator,
+            users: NormalUser,
+            movies: Movie
+    ]
+
+    String toString(){
+        return name
+    }
 
 }

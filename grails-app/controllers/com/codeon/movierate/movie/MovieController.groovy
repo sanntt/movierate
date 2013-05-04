@@ -1,8 +1,15 @@
 package com.codeon.movierate.movie
 
+import com.codeon.movierate.group.UserGroup
+import com.codeon.movierate.user.User
+import grails.plugins.springsecurity.Secured
 import org.springframework.dao.DataIntegrityViolationException
 
+@Secured(['ROLE_USER', 'ROLE_ADMIN'])
 class MovieController {
+    def gId
+    def average
+    def springSecurityService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -15,10 +22,12 @@ class MovieController {
         [movieInstanceList: Movie.list(params), movieInstanceTotal: Movie.count()]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def create() {
         [movieInstance: new Movie(params)]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def save() {
         def movieInstance = new Movie(params)
         if (!movieInstance.save(flush: true)) {
@@ -41,6 +50,53 @@ class MovieController {
         [movieInstance: movieInstance]
     }
 
+    def showMovieForGroup(Long id) {
+        def movieInstance = Movie.get(id)
+        if (!movieInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'movie.label', default: 'Movie'), id])
+            redirect(action: "list")
+            return
+        }
+
+        def comments = Comment.findAllByMovieAndGroup(movieInstance, UserGroup.get(params.gId))
+        String average = '0'
+        BigDecimal total = BigDecimal.ZERO
+        BigDecimal i = BigDecimal.ZERO
+        def ratings = Score.findAllByMovieAndGroup(movieInstance, UserGroup.get(params.gId))
+        for (rating in ratings) {
+            total = total.add(rating.score)
+            i = i.add(BigDecimal.ONE)
+        }
+
+        if (i.compareTo(BigDecimal.ZERO) > 0) {
+            average = total.divide(i).toPlainString()
+        }
+
+        render(view: "show", model: [movieInstance: movieInstance, gId: params.gId, comments: comments, ratings: average])
+        return
+    }
+
+    def find() {
+        if (!request.post) {
+            return
+        }
+
+        // TODO: Por ahora solo permite buscar nombres de pelicula exactos
+        def movies = Movie.findAllByTitleIlike("%$params.title%")
+        if (!movies || movies.isEmpty()) {
+            redirect action: 'list'
+//            return [message: 'movies.not.found']
+        }
+
+        if (movies.size() > 1) {
+            render view: 'list'
+        }
+        else {
+            redirect action: 'show', id: movies[0].id
+        }
+    }
+
+    @Secured(['ROLE_ADMIN'])
     def edit(Long id) {
         def movieInstance = Movie.get(id)
         if (!movieInstance) {
@@ -52,6 +108,7 @@ class MovieController {
         [movieInstance: movieInstance]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def update(Long id, Long version) {
         def movieInstance = Movie.get(id)
         if (!movieInstance) {
@@ -81,6 +138,7 @@ class MovieController {
         redirect(action: "show", id: movieInstance.id)
     }
 
+    @Secured(['ROLE_ADMIN'])
     def delete(Long id) {
         def movieInstance = Movie.get(id)
         if (!movieInstance) {
@@ -98,5 +156,37 @@ class MovieController {
             flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'movie.label', default: 'Movie'), id])
             redirect(action: "show", id: id)
         }
+    }
+
+    def comment() {
+        def movieInstance = Movie.get(params.id)
+        def userGroup = UserGroup.get(params.gId)
+        User user = springSecurityService.currentUser
+        String comment = params.comment
+        if (comment != null && comment.length() > 0) {
+            new Comment(commenter: user, commentText: comment, group: userGroup, movie:  movieInstance, dateCreated: new Date()).save(flush: true)
+        }
+        redirect(action: "showMovieForGroup", id: params.id, params: [gId: params.gId])
+    }
+
+    def rate() {
+        def movieInstance = Movie.get(params.id)
+        def userGroup = UserGroup.get(params.gId)
+        User user = springSecurityService.currentUser
+        if (params.rating != null) {
+            BigDecimal score = new BigDecimal(params.rating)
+
+            if (score != null && score.compareTo(BigDecimal.ZERO) > 0) {
+                Score savedScore = Score.findByMovieAndUser(movieInstance, user)
+                if (savedScore != null) {
+                    savedScore.score = score
+                    savedScore.save(flush: true)
+                } else {
+                    new Score(user: user, score: score, group: userGroup, movie:  movieInstance).save(flush: true)
+                }
+            }
+        }
+
+        redirect(action: "showMovieForGroup", id: params.id, params: [gId: params.gId])
     }
 }

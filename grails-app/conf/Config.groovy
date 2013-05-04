@@ -100,14 +100,10 @@ log4j = {
 }
 
 // Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.codeon.movierate.User'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.codeon.movierate.UserRole'
-grails.plugins.springsecurity.authority.className = 'com.codeon.movierate.Role'
-
-// Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.codeon.movierate.user.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.codeon.movierate.user.UserRole'
 grails.plugins.springsecurity.authority.className = 'com.codeon.movierate.user.Role'
+grails.plugins.springsecurity.roleHierarchy = '''ROLE_USER < ROLE_ADMIN'''
 
 grails {
     mail {

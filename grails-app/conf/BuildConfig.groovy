@@ -6,6 +6,11 @@ grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
+cloudbees.account='codeon'
+cloudbees.api.key='135FA7976C1118C9'
+cloudbees.api.secret='ES9KTDGDTVRUXS2TGQVRLUOKJ6SMG3MW0R7QKJSGN6S='
+cloudbees.permgensize = 164
+
 // uncomment (and adjust settings) to fork the JVM to isolate classpaths
 //grails.project.fork = [
 //   run: [maxMemory:1024, minMemory:64, debug:false, maxPerm:256]
@@ -65,5 +70,7 @@ grails.project.dependency.resolution = {
         compile ":famfamfam:1.0.1"
         compile ":jquery-ui:1.8.24"
         compile ":mail:1.0.1"
+        compile ":cloud-bees:0.6.2"
+
     }
 }

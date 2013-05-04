@@ -17,6 +17,6 @@ class Genre {
     }
 
     String toString() {
-        name
+        return name
     }
 }

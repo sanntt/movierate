@@ -21,4 +21,8 @@ class Comment {
         commentText column: '`commenttext`'
         dateCreated column: '`datecreated`'
     }
+
+    String toString(){
+        return commenter.toString() + ": " + commentText + " - (" + dateCreated + ")"
+    }
 }

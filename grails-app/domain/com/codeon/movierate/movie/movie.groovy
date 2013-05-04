@@ -33,4 +33,8 @@ class Movie {
 //        actors joinTable: [name: "mm_actors_movies", key: 'mm_movie_id']
 //        directors joinTable: [name: "mm_directors_movies", key: 'mm_movie_id']
     }
+
+    String toString(){
+        return title + " (" + year.toString() + ")"
+    }
 }

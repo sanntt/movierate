@@ -9,5 +9,11 @@ import com.codeon.movierate.user.User
  * Time: 11:20
  * To change this template use File | Settings | File Templates.
  */
-class Moderator extends User {
+class Moderator {
+    User user
+    UserGroup group
+
+    String toString(){
+        return user.toString()
+    }
 }

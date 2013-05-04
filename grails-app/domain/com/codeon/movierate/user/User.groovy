@@ -47,4 +47,24 @@ class User {
 	protected void encodePassword() {
 		password = springSecurityService.encodePassword(password)
 	}
+
+    String toString(){
+        def result = username
+        if (!lastName.isEmpty() || !name.isEmpty()) {
+            result += " ("
+        }
+        if (!name.isEmpty()) {
+            result += name
+        }
+        if (!lastName.isEmpty() && !name.isEmpty()) {
+            result += " "
+        }
+        if (!lastName.isEmpty()) {
+            result += lastName
+        }
+        if (!lastName.isEmpty() || !name.isEmpty()) {
+            result += ")"
+        }
+        return result
+    }
 }

@@ -1,4 +1,4 @@
-<%@ page import="com.codeon.movierate.movie.Movie" %>
+    <%@ page import="com.codeon.movierate.movie.Movie" %>
 <!DOCTYPE html>
 <html>
 	<head>
