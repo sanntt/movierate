@@ -1,5 +1,7 @@
 package com.codeon.movierate.user
 
+import org.apache.commons.lang.builder.HashCodeBuilder
+
 class User {
 
 	transient springSecurityService
@@ -66,5 +68,19 @@ class User {
             result += ")"
         }
         return result
+    }
+
+    boolean equals(other) {
+        if (!(other instanceof User)) {
+            return false
+        }
+
+        other.id == this.id
+    }
+
+    int hashCode() {
+        def builder = new HashCodeBuilder()
+        if (this) builder.append(this.id)
+        builder.toHashCode()
     }
 }

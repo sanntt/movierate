@@ -12,6 +12,7 @@ class Movie {
     int year
     String plot
     String poster
+    Date created = new Date()
 
     // static belongsTo = [Actor, Genre, Director]
 

@@ -35,14 +35,14 @@
                     <label for="administrators">
                         <g:message code="userGroup.administrators.label" default="Administrators" />
                     </label>
-                    <g:select name="administratorUsers" from="${userGroupInstance?.users}" multiple="multiple" optionKey="id" size="5" value="${userGroupInstance?.administrators*.id}" class="many-to-many"/>
+                    <g:select name="administratorUsers" from="${userGroupInstance?.users*.user}" multiple="multiple" optionKey="id" size="5" value="${userGroupInstance?.administrators*.user.id}" class="many-to-many"/>
                 </div>
 
                 <div class="fieldcontain ${hasErrors(bean: userGroupInstance, field: 'moderators', 'error')} ">
                     <label for="moderators">
                         <g:message code="userGroup.moderators.label" default="Moderators" />
                     </label>
-                    <g:select name="moderatorUsers" from="${userGroupInstance?.users}" multiple="multiple" optionKey="id" size="5" value="${userGroupInstance?.users*.id}" class="many-to-many"/>
+                    <g:select name="moderatorUsers" from="${userGroupInstance?.users*.user}" multiple="multiple" optionKey="id" size="5" value="${userGroupInstance?.moderators*.user.id}" class="many-to-many"/>
                 </div>
 
                 <fieldset class="form">

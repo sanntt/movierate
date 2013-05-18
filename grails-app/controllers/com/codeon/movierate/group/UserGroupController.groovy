@@ -1,12 +1,17 @@
 package com.codeon.movierate.group
 
+import com.codeon.movierate.movie.Comment
+import com.codeon.movierate.movie.Score
 import com.codeon.movierate.user.User
+import grails.converters.JSON
 import grails.plugins.springsecurity.Secured
 import org.springframework.dao.DataIntegrityViolationException
 
 @Secured(['ROLE_USER', 'ROLE_ADMIN'])
 class UserGroupController {
     def springSecurityService
+    def userGroupService
+    def util
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -25,8 +30,8 @@ class UserGroupController {
         def asAdmin = Administrator.findAllByUser(user).group
         def asMod = Moderator.findAllByUser(user).group
         def asUser = NormalUser.findAllByUser(user).group
-        def model = [userGroupInstanceList: asOwner, userGroupInstanceTotal: asOwner.size(), userGroupAdmined: asAdmin, userGroupModed: asMod, userGroupAsUser: asUser]
-        render(view: "list", model: model)
+        def model = [userGroupOwner: asOwner, userGroupAdmined: asAdmin, userGroupModed: asMod, userGroupAsUser: asUser]
+        render(view: "page_grails", model: model)
         return
     }
 
@@ -40,7 +45,6 @@ class UserGroupController {
     def save() {
         User user = springSecurityService.currentUser
         def userGroupInstance = new UserGroup(params)
-        userGroupInstance.owner = user
 
         userGroupInstance.users = params.normalUsers.collect {
             User normalUser = User.get(it)
@@ -65,10 +69,15 @@ class UserGroupController {
         }
 
         User user = springSecurityService.currentUser
-        def canEdit = NormalUser.findAllByGroupAndUser(userGroupInstance, user).isEmpty()
-        def canDelete = (user == userGroupInstance.owner)
+        if (userGroupInstance.containsUser(user)) {
+            def canEdit = userGroupInstance.userIsOwner(user) || userGroupInstance.userIsAdmin(user) || userGroupInstance.userIsModerator(user)
+            def canDelete = userGroupInstance.userIsOwner(user)
 
-        [userGroupInstance: userGroupInstance, canDelete: canDelete, canEdit: canEdit]
+            render(view: "showGroup", model: [userGroupInstance: userGroupInstance, canDelete: canDelete, canEdit: canEdit])
+            return
+        }
+        redirect(action: "list")
+        return
     }
 
     def edit(Long id) {
@@ -106,12 +115,41 @@ class UserGroupController {
            new Administrator(user: admin, group: userGroupInstance)
        } */
 
-        userGroupInstance.administrators = params.administratorUsers.collect {
-            User admin = User.get(it)
-            new Administrator(user: admin, group: userGroupInstance)
+        /** GUARDA DOS VECES EL MISMO ADMINISTRADOR
+         * if (params.administratorUsers != null) {
+            def oldAdministratorsUsers = Administrator.findAllByGroup(userGroupInstance)*.user
+            def newAdministrators = params.administratorUsers.findAll{String newAdminUserId -> !oldAdministratorsUsers*.id.contains(newAdminUserId)}
+            userGroupInstance.administrators = newAdministrators.collect {
+                def user = User.get(it)
+                new Administrator(user: user, group: userGroupInstance)
+            }
+        } */
+
+        Administrator.findAllByGroup(userGroupInstance)*.delete()
+        if (params.administratorUsers != null) {
+            userGroupInstance.administrators = params.administratorUsers.collect {
+                def user = User.get(it)
+                new Administrator(user: user, group: userGroupInstance)
+            }
         }
 
-        userGroupInstance.moderators = params.moderatorUsers.collect {
+        Moderator.findAllByGroup(userGroupInstance)*.delete()
+        if (params.moderatorUsers != null) {
+            userGroupInstance.moderators = params.moderatorUsers.collect {
+                def user = User.get(it)
+                new Moderator(user: user, group: userGroupInstance)
+            }
+        }
+
+        NormalUser.findAllByGroup(userGroupInstance)*.delete()
+        if (params.normalUsers != null) {
+            userGroupInstance.users = params.normalUsers.collect {
+                def user = User.get(it)
+                new NormalUser(user: user, group: userGroupInstance)
+            }
+        }
+
+        /*userGroupInstance.moderators = params.moderatorUsers.collect {
             User mod = User.get(it)
             new Moderator(user: mod, group: userGroupInstance)
         }
@@ -119,7 +157,7 @@ class UserGroupController {
         userGroupInstance.users = params.normalUsers.collect {
             User normalUser = User.get(it)
             new NormalUser(user: normalUser, group: userGroupInstance)
-        }
+        } */
 
         if (!userGroupInstance.save(flush: true)) {
             render(view: "edit", model: [userGroupInstance: userGroupInstance])
@@ -142,6 +180,12 @@ class UserGroupController {
         }
 
         try {
+            Comment.deleteAll(Comment.findAllByGroup(userGroupInstance))
+            Score.deleteAll(Score.findAllByGroup(userGroupInstance))
+            Administrator.deleteAll(Administrator.findAllByGroup(userGroupInstance))
+            Moderator.deleteAll(Moderator.findAllByGroup(userGroupInstance))
+            NormalUser.deleteAll(NormalUser.findAllByGroup(userGroupInstance))
+            Owner.deleteAll(Owner.findAllByGroup(userGroupInstance))
             userGroupInstance.delete(flush: true)
             flash.message = message(code: 'default.deleted.message', args: [message(code: 'userGroup.label', default: 'UserGroup'), id])
             redirect(action: "list")
@@ -151,4 +195,8 @@ class UserGroupController {
             redirect(action: "show", id: id)
         }
     }
+
+   /* def complist = {
+        render userGroupService.complist(params) as JSON
+    }    */
 }

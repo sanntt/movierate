@@ -21,8 +21,35 @@ class UserGroup {
             movies: Movie
     ]
 
+    static constraints = {
+        name blank: false, unique: true
+        owner blank: false
+    }
+
     String toString(){
         return name
     }
+
+    def containsUser(User user) {
+        userIsUser(user) || userIsOwner(user) || userIsAdmin(user) || userIsModerator(user)
+    }
+
+    def userIsAdmin(User user) {
+        Administrator.findByGroupAndUser(this,user) != null
+    }
+
+    def userIsOwner(User user) {
+        user.equals(this.owner)
+    }
+
+    def userIsModerator(User user) {
+        Moderator.findByGroupAndUser(this,user) != null
+    }
+
+    def userIsUser(User user) {
+        NormalUser.findByGroupAndUser(this,user) != null
+    }
+
+
 
 }

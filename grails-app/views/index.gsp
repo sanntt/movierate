@@ -1,122 +1,302 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
-		<style type="text/css" media="screen">
-			#status {
-				background-color: #eee;
-				border: .2em solid #fff;
-				margin: 2em 2em 1em;
-				padding: 1em;
-				width: 12em;
-				float: left;
-				-moz-box-shadow: 0px 0px 1.25em #ccc;
-				-webkit-box-shadow: 0px 0px 1.25em #ccc;
-				box-shadow: 0px 0px 1.25em #ccc;
-				-moz-border-radius: 0.6em;
-				-webkit-border-radius: 0.6em;
-				border-radius: 0.6em;
-			}
+<!doctype html>
+<html class="no-js">
 
-			.ie6 #status {
-				display: inline; /* float double margin fix http://www.positioniseverything.net/explorer/doubled-margin.html */
-			}
+<head>
+    <meta charset="utf-8"/>
+    <title>ZENI</title>
 
-			#status ul {
-				font-size: 0.9em;
-				list-style-type: none;
-				margin-bottom: 0.6em;
-				padding: 0;
-			}
+    <!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    <link rel="stylesheet" media="all" href="${resource(dir: 'css', file: 'style.css')}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
 
-			#status li {
-				line-height: 1.3;
-			}
 
-			#status h1 {
-				text-transform: uppercase;
-				font-size: 1.1em;
-				margin: 0 0 0.3em;
-			}
+    <!-- JS -->
+    <script src="${resource(dir: 'js', file: 'jquery-1.6.4.min.js')}"></script>
+    <script src="${resource(dir: 'js', file: 'css3-mediaqueries.js')}"></script>
+    <script src="${resource(dir: 'js', file: 'custom.js')}"></script>
+    <script src="${resource(dir: 'js', file: 'tabs.js')}"></script>
 
-			#page-body {
-				margin: 2em 1em 1.25em 18em;
-			}
+    <!-- Tweet -->
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery.tweet.css')}" media="all"  />
+    <script src="${resource(dir: 'js/tweet', file: 'jquery.tweet.js')}" ></script>
+    <!-- ENDS Tweet -->
 
-			h2 {
-				margin-top: 1em;
-				margin-bottom: 0.3em;
-				font-size: 1em;
-			}
+    <!-- superfish -->
+    <link rel="stylesheet" media="screen" href="${resource(dir: 'css', file: 'superfish.css')}" />
+    <script  src="${resource(dir: 'js/superfish-1.4.8/js', file: 'hoverIntent.js')}"></script>
+    <script  src="${resource(dir: 'js/superfish-1.4.8/js', file: 'superfish.js')}"></script>
+    <script  src="${resource(dir: 'js/superfish-1.4.8/js', file: 'supersubs.js')}"></script>
+    <!-- ENDS superfish -->
 
-			p {
-				line-height: 1.5;
-				margin: 0.25em 0;
-			}
+    <!-- prettyPhoto -->
+    <script  src="${resource(dir: 'js/prettyPhoto/js', file: 'jquery.prettyPhoto.js')}"></script>
+    <link rel="stylesheet" href="${resource(dir: 'js/prettyPhoto/css', file: 'prettyPhoto.css')}"  media="screen" />
+    <!-- ENDS prettyPhoto -->
 
-			#controller-list ul {
-				list-style-position: inside;
-			}
+    <!-- poshytip -->
+    <link rel="stylesheet" href="${resource(dir: 'js/poshytip-1.1/src/tip-twitter', file: 'tip-twitter.css')}"  />
+    <link rel="stylesheet" href="${resource(dir: 'js/poshytip-1.1/src/tip-yellowsimple', file: 'tip-yellowsimple.css')}"  />
+    <script  src="${resource(dir: 'js/poshytip-1.1/src', file: 'jquery.poshytip.min.js')}"></script>
+    <!-- ENDS poshytip -->
 
-			#controller-list li {
-				line-height: 1.3;
-				list-style-position: inside;
-				margin: 0.25em 0;
-			}
+    <!-- GOOGLE FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300' rel='stylesheet' type='text/css'>
 
-			@media screen and (max-width: 480px) {
-				#status {
-					display: none;
-				}
+    <!-- Flex Slider -->
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'flexslider.css')}" >
+    <script src="${resource(dir: 'js', file: 'jquery.flexslider-min.js')}"></script>
+    <!-- ENDS Flex Slider -->
 
-				#page-body {
-					margin: 0 1em 1em;
-				}
+    <!-- Less framework -->
+    <link rel="stylesheet" media="all" href="${resource(dir: 'css', file: 'lessframework.css')}"/>
 
-				#page-body h1 {
-					margin-top: 0;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div id="status" role="complementary">
-			<h1>Application Status</h1>
-			<ul>
-				<li>App version: <g:meta name="app.version"/></li>
-				<li>Grails version: <g:meta name="app.grails.version"/></li>
-				<li>Groovy version: ${GroovySystem.getVersion()}</li>
-				<li>JVM version: ${System.getProperty('java.version')}</li>
-				<li>Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</li>
-				<li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
-				<li>Domains: ${grailsApplication.domainClasses.size()}</li>
-				<li>Services: ${grailsApplication.serviceClasses.size()}</li>
-				<li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>
-			</ul>
-			<h1>Installed Plugins</h1>
-			<ul>
-				<g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-					<li>${plugin.name} - ${plugin.version}</li>
-				</g:each>
-			</ul>
-		</div>
-		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
-			<p>Congratulations, you have successfully started your first Grails application! At the moment
-			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
-			   content you may choose. Below is a list of controllers that are currently deployed in this application,
-			   click on each to execute its default action:</p>
+    <!-- modernizr -->
+    <script src="${resource(dir: 'js', file: 'modernizr.js')}"></script>
 
-			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
-				<ul>
-					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-					</g:each>
-				</ul>
-			</div>
-		</div>
-	</body>
+    <!-- SKIN -->
+    <link rel="stylesheet" media="all" href="${resource(dir: 'css', file: 'skin.css')}"/>
+
+    <!-- reply move form -->
+    <script src="${resource(dir: 'js', file: 'moveform.js')}"></script>
+
+
+</head>
+
+<body lang="en">
+<header class="clearfix">
+    <div class="wrapper clearfix">
+
+        <a href="index.html" id="logo"><g:img dir="img" file="logo.png" alt="Zeni"/></a>
+
+        <nav>
+            <ul id="nav" class="sf-menu">
+                <li class="current-menu-item"><a href="index.html">INICIO</a></li>
+                <li><a href="blog.html">MIS GRUPOS</a></li>
+                <li><a href="page.html">PERFIL</a></li>
+                <li><a href="contact.html">CONTACTO</a></li>
+            </ul>
+            <div id="combo-holder"></div>
+        </nav>
+    </div>
+</header>
+
+<!-- MAIN -->
+<div id="main">
+    <div class="wrapper">
+
+        <!-- slider holder -->
+        <div id="slider-holder" class="clearfix">
+
+            <!-- slider -->
+            <div class="flexslider home-slider">
+                <ul class="slides">
+                    <li>
+                        <g:img dir="img/slides" file="4091.jpg" alt="Ralph el Demoledor"/>
+                        <p class="flex-caption">Ralph el Demoledor (2012)</p>
+                    </li>
+                    <li>
+                        <img src="img/slides/3081.jpg" alt="El gato con botas" />
+                        <p class="flex-caption">El gato con botas (2011)</p>
+                    </li>
+                    <li>
+                        <img src="img/slides/3001.jpg" alt="Sherlock Holmes" />
+                        <p class="flex-caption">Sherlock Holmes (2009)</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- ENDS slider -->
+
+            <div class="home-slider-clearfix "></div>
+
+            <!-- Headline -->
+            <div id="headline">
+
+                <form id="loginForm" action="#" method="post">
+                    <h2 class="heading">INGRESAR</h2>
+                    <fieldset>
+                        <div>
+                            <input name="name"  id="name" type="text" class="form-poshytip" title="Ingrese su usuario" placeholder="Usuario"/>
+                        </div>
+                        <div>
+                            <input name="password"  id="password" type="password" class="form-poshytip" title="Ingrese su contrase&ntilde;a" placeholder="Contrase&ntilde;a" />
+                        </div>
+
+                        <p><input type="button" value="Ingresar" name="submit" id="submit" /></p>
+                    </fieldset>
+
+                </form>
+
+
+
+                <em id="corner"></em>
+            </div>
+            <!-- ENDS headline -->
+
+
+        </div>
+        <!-- ENDS slider holder -->
+
+
+        <!-- home-block -->
+        <div class="home-block" >
+            <h2 class="home-block-heading"><span>ULTIMAS PELICULAS</span></h2>
+            <div class="one-third-thumbs clearfix" >
+                <figure>
+                    <figcaption>
+                        <strong>Pellentesque habitant morbi</strong>
+                        <span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+                        <em>December 08, 2011</em>
+                        <a href="single.html" class="opener"></a>
+                    </figcaption>
+
+                    <a href="single.html"  class="thumb"><img src="img/dummies/featured-1.jpg" alt="Alt text" /></a>
+                </figure>
+
+                <figure>
+                    <figcaption>
+                        <strong>Pellentesque habitant morbi</strong>
+                        <span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+                        <em>December 08, 2011</em>
+                        <a href="single.html" class="opener"></a>
+                    </figcaption>
+
+                    <a href="single.html"  class="thumb"><img src="img/dummies/featured-2.jpg" alt="Alt text" /></a>
+                </figure>
+
+                <figure class="last">
+                    <figcaption>
+                        <strong>Pellentesque habitant morbi</strong>
+                        <span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+                        <em>December 08, 2011</em>
+                        <a href="single.html" class="opener"></a>
+                    </figcaption>
+
+                    <a href="single.html"  class="thumb"><img src="img/dummies/featured-3.jpg" alt="Alt text" /></a>
+                </figure>
+
+                <figure>
+                    <figcaption>
+                        <strong>Pellentesque habitant morbi</strong>
+                        <span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+                        <em>December 08, 2011</em>
+                        <a href="single.html" class="opener"></a>
+                    </figcaption>
+
+                    <a href="single.html"  class="thumb"><img src="img/dummies/featured-4.jpg" alt="Alt text" /></a>
+                </figure>
+
+                <figure>
+                    <figcaption>
+                        <strong>Pellentesque habitant morbi</strong>
+                        <span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+                        <em>December 08, 2011</em>
+                        <a href="single.html" class="opener"></a>
+                    </figcaption>
+
+                    <a href="single.html"  class="thumb"><img src="img/dummies/featured-5.jpg" alt="Alt text" /></a>
+                </figure>
+
+                <figure class="last">
+                    <figcaption>
+                        <strong>Pellentesque habitant morbi</strong>
+                        <span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+                        <em>December 08, 2011</em>
+                        <a href="single.html" class="opener"></a>
+                    </figcaption>
+
+                    <a href="single.html"  class="thumb"><img src="img/dummies/featured-6.jpg" alt="Alt text" /></a>
+                </figure>
+
+
+            </div>
+        </div>
+        <!-- ENDS home-block -->
+
+
+        <!-- home-block -->
+        <div class="home-block">
+            <h2 class="home-block-heading"><span>LATEST PROJECTS</span></h2>
+            <div class="one-fourth-thumbs clearfix">
+
+
+                <figure>
+                    <figcaption>
+                        <strong>Pellentesque habitant morbi</strong>
+                        <span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+                        <em>December 08, 2011</em>
+                        <a href="single.html" class="opener"></a>
+                    </figcaption>
+
+                    <a href="single.html"  class="thumb"><img src="img/dummies/featured-7.jpg" alt="Alt text" /></a>
+                </figure>
+
+                <figure>
+                    <figcaption>
+                        <strong>Pellentesque habitant morbi</strong>
+                        <span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+                        <em>December 08, 2011</em>
+                        <a href="single.html" class="opener"></a>
+                    </figcaption>
+
+                    <a href="single.html"  class="thumb"><img src="img/dummies/featured-8.jpg" alt="Alt text" /></a>
+                </figure>
+
+                <figure>
+                    <figcaption>
+                        <strong>Pellentesque habitant morbi</strong>
+                        <span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+                        <em>December 08, 2011</em>
+                        <a href="single.html" class="opener"></a>
+                    </figcaption>
+
+                    <a href="single.html"  class="thumb"><img src="img/dummies/featured-9.jpg" alt="Alt text" /></a>
+                </figure>
+
+                <figure class="last">
+                    <figcaption>
+                        <strong>Pellentesque habitant morbi</strong>
+                        <span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+                        <em>December 08, 2011</em>
+                        <a href="single.html" class="opener"></a>
+                    </figcaption>
+
+                    <a href="single.html"  class="thumb"><img src="img/dummies/featured-10.jpg" alt="Alt text" /></a>
+                </figure>
+
+                <a href="#" class="more-link right">More projects  &#8594;</a>
+
+
+
+            </div>
+
+
+        </div>
+        <!-- ENDS home-block -->
+
+    </div>
+</div>
+<!-- ENDS MAIN -->
+
+
+<footer>
+    <div class="wrapperOnly">
+
+        <div class="footer-bottom">
+            <div class="right">
+                <ul id="social-bar">
+                    <li><a href="http://www.facebook.com/pages/Ansimuz/224538697564461"  title="Become a fan" class="poshytip"><img src="img/social/facebook.png"  alt="Facebook" /></a></li>
+                    <li><a href="https://twitter.com/ansimuz" title="Follow my tweets" class="poshytip"><img src="img/social/twitter.png"  alt="twitter" /></a></li>
+                    <li><a href="https://plus.google.com/109030791898417339180/posts"  title="Add to the circle" class="poshytip"><img src="img/social/plus.png" alt="Google plus" /></a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+
 </html>

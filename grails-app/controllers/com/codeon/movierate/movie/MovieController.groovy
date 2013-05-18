@@ -47,7 +47,8 @@ class MovieController {
             return
         }
 
-        [movieInstance: movieInstance]
+        render(view: "page_grails", model: [movieInstance: movieInstance])
+        return
     }
 
     def showMovieForGroup(Long id) {
@@ -72,7 +73,7 @@ class MovieController {
             average = total.divide(i).toPlainString()
         }
 
-        render(view: "show", model: [movieInstance: movieInstance, gId: params.gId, comments: comments, ratings: average])
+        render(view: "page_grails", model: [movieInstance: movieInstance, gId: params.gId, comments: comments, ratings: average, loggedUser: springSecurityService.currentUser])
         return
     }
 
@@ -162,11 +163,12 @@ class MovieController {
         def movieInstance = Movie.get(params.id)
         def userGroup = UserGroup.get(params.gId)
         User user = springSecurityService.currentUser
-        String comment = params.comment
+        String comment = params.comments
         if (comment != null && comment.length() > 0) {
             new Comment(commenter: user, commentText: comment, group: userGroup, movie:  movieInstance, dateCreated: new Date()).save(flush: true)
         }
         redirect(action: "showMovieForGroup", id: params.id, params: [gId: params.gId])
+        return
     }
 
     def rate() {

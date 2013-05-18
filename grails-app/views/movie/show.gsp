@@ -153,7 +153,11 @@
             </sec:ifAllGranted>
 
             <g:each in="${comments?}" var="comment">
-                <li>${comment.toString()}</li>
+                <li>${comment.toString()}
+
+
+
+                </li>
             </g:each>
 		</div>
 	</body>

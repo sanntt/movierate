@@ -7,7 +7,7 @@
 		<g:message code="userGroup.movies.label" default="Movies" />
 		
 	</label>
-	<g:select name="movies" from="${com.codeon.movierate.movie.Movie.list()}" multiple="multiple" optionKey="id" size="5" value="${userGroupInstance?.movies*.id}" class="many-to-many"/>
+	<g:select name="movies" from="${com.codeon.movierate.movie.Movie.list(sort:"title")}" multiple="multiple" optionKey="id" size="5" value="${userGroupInstance?.movies*.id}" class="many-to-many"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: userGroupInstance, field: 'name', 'error')} ">
@@ -44,8 +44,10 @@
     <label for="normals">
         <g:message code="userGroup.users.label" default="Users" />
     </label>
-    <g:select name="normalUsers" from="${com.codeon.movierate.user.User.list()}" multiple="multiple" optionKey="id" size="5" value="${userGroupInstance?.users*.id}" class="many-to-many"/>
+    <g:select name="normalUsers" from="${com.codeon.movierate.user.User.list(sort:"username")}" multiple="multiple" optionKey="id" size="5" value="${userGroupInstance?.users*.user?.id}" class="many-to-many"/>
 </div>
+
+
 
 </div>
 
