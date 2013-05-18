@@ -222,7 +222,7 @@
                                                             <span>${comment.commentText}</span>
                                                             <span>${comment.commenter.toString()} <g:formatDate format="dd-MM-yyyy HH:mm:ss" date="${comment.dateCreated}"/></span>
 
-                                                            <g:if test="${comment.commenter == loggedUser}">
+                                                            <g:if test="${comment.commenter == loggedUser || canDelete}">
                                                                 <g:hiddenField name="id" value="${comment?.id}" />
                                                                 <g:hiddenField name="mId" value="${movieInstance?.id}" />
                                                                 <g:hiddenField name="gId" value="${gId}" />

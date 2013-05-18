@@ -1,8 +1,11 @@
 package com.codeon.movierate.movie
 
+import com.codeon.movierate.group.Moderator
+import com.codeon.movierate.group.UserGroup
 import org.springframework.dao.DataIntegrityViolationException
 
 class CommentController {
+    def springSecurityService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -83,6 +86,8 @@ class CommentController {
 
     def delete(Long id) {
         def commentInstance = Comment.get(id)
+        def user = springSecurityService.currentUser
+        def group = UserGroup.get(params.gId)
         if (!commentInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'comment.label', default: 'Comment'), id])
             redirect(controller: "movie", action: "showMovieForGroup", id: params.mId, params: [gId: params.gId])
@@ -91,15 +96,20 @@ class CommentController {
             return
         }
 
-        try {
-            commentInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'comment.label', default: 'Comment'), id])
-            redirect(controller: "movie", action: "showMovieForGroup", id: params.mId, params: [gId: params.gId])
-            // redirect(action: "list")
+        // Is owner or mod -> can delete comments
+        if (user == group.owner || Moderator.findByGroupAndUser(group, user) != null) {
+            try {
+                commentInstance.delete(flush: true)
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'comment.label', default: 'Comment'), id])
+
+            }
+            catch (DataIntegrityViolationException e) {
+                flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'comment.label', default: 'Comment'), id])
+                redirect(action: "show", id: id)
+                return
+            }
         }
-        catch (DataIntegrityViolationException e) {
-            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'comment.label', default: 'Comment'), id])
-            redirect(action: "show", id: id)
-        }
+        redirect(controller: "movie", action: "showMovieForGroup", id: params.mId, params: [gId: params.gId])
+        return
     }
 }

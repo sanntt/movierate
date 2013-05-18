@@ -68,7 +68,7 @@ class BootStrap {
                 .save(failOnError: true, flush: true)
 
         UserGroup group1 = new UserGroup(name: 'Familia', owner: user).save(failOnError: true)
-        Owner owner = new Owner(user: user, group: group1).save(failOnError: true, flush: true)
+        //Owner owner = new Owner(user: user, group: group1).save(failOnError: true, flush: true)
         Administrator admin1 = new Administrator(user: tom, group: group1).save(failOnError: true, flush: true)
         Moderator mod1 = new Moderator(user: sally, group: group1).save(failOnError: true, flush: true)
         NormalUser u1 = new NormalUser(user: mike, group: group1).save(failOnError: true, flush: true)
@@ -81,7 +81,7 @@ class BootStrap {
 
 
         UserGroup group2 = new UserGroup(name: 'Amigos', owner: tom).save(failOnError: true)
-        Owner owner2 = new Owner(user: tom, group: group2).save(failOnError: true, flush: true)
+        //Owner owner2 = new Owner(user: tom, group: group2).save(failOnError: true, flush: true)
         Moderator mod2 = new Moderator(user: user, group: group2).save(failOnError: true, flush: true)
         NormalUser u2 = new NormalUser(user: john, group: group2).save(failOnError: true, flush: true)
         NormalUser u3 = new NormalUser(user: sally, group: group2).save(failOnError: true, flush: true)

@@ -45,6 +45,7 @@ class UserGroupController {
     def save() {
         User user = springSecurityService.currentUser
         def userGroupInstance = new UserGroup(params)
+        userGroupInstance.owner = user
 
         userGroupInstance.users = params.normalUsers.collect {
             User normalUser = User.get(it)
@@ -185,7 +186,7 @@ class UserGroupController {
             Administrator.deleteAll(Administrator.findAllByGroup(userGroupInstance))
             Moderator.deleteAll(Moderator.findAllByGroup(userGroupInstance))
             NormalUser.deleteAll(NormalUser.findAllByGroup(userGroupInstance))
-            Owner.deleteAll(Owner.findAllByGroup(userGroupInstance))
+            //Owner.deleteAll(Owner.findAllByGroup(userGroupInstance))
             userGroupInstance.delete(flush: true)
             flash.message = message(code: 'default.deleted.message', args: [message(code: 'userGroup.label', default: 'UserGroup'), id])
             redirect(action: "list")

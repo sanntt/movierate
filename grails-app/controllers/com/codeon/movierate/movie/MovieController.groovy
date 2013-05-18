@@ -1,5 +1,6 @@
 package com.codeon.movierate.movie
 
+import com.codeon.movierate.group.Moderator
 import com.codeon.movierate.group.UserGroup
 import com.codeon.movierate.user.User
 import grails.plugins.springsecurity.Secured
@@ -59,11 +60,13 @@ class MovieController {
             return
         }
 
-        def comments = Comment.findAllByMovieAndGroup(movieInstance, UserGroup.get(params.gId))
+        def userGroupInstace = UserGroup.get(params.gId)
+
+        def comments = Comment.findAllByMovieAndGroup(movieInstance, userGroupInstace)
         String average = '0'
         BigDecimal total = BigDecimal.ZERO
         BigDecimal i = BigDecimal.ZERO
-        def ratings = Score.findAllByMovieAndGroup(movieInstance, UserGroup.get(params.gId))
+        def ratings = Score.findAllByMovieAndGroup(movieInstance, userGroupInstace)
         for (rating in ratings) {
             total = total.add(rating.score)
             i = i.add(BigDecimal.ONE)
@@ -73,7 +76,8 @@ class MovieController {
             average = total.divide(i).toPlainString()
         }
 
-        render(view: "page_grails", model: [movieInstance: movieInstance, gId: params.gId, comments: comments, ratings: average, loggedUser: springSecurityService.currentUser])
+        def user = springSecurityService.currentUser
+        render(view: "page_grails", model: [movieInstance: movieInstance, gId: params.gId, comments: comments, ratings: average, loggedUser: user, canDelete: (user == userGroupInstace.owner || Moderator.findByGroupAndUser(userGroupInstace, user) != null)])
         return
     }
 
