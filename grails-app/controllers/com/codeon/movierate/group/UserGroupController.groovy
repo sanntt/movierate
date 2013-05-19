@@ -71,10 +71,19 @@ class UserGroupController {
 
         User user = springSecurityService.currentUser
         if (userGroupInstance.containsUser(user)) {
-            def canEdit = userGroupInstance.userIsOwner(user) || userGroupInstance.userIsAdmin(user) || userGroupInstance.userIsModerator(user)
+            def isOwner = userGroupInstance.userIsOwner(user)
+            def canEdit =  isOwner || userGroupInstance.userIsAdmin(user) || userGroupInstance.userIsModerator(user)
             def canDelete = userGroupInstance.userIsOwner(user)
 
-            render(view: "showGroup", model: [userGroupInstance: userGroupInstance, canDelete: canDelete, canEdit: canEdit])
+            def users = []
+            if (isOwner) {
+                // We use this in case owner wants to abandon group
+                users = Administrator.findAllByGroup(userGroupInstance)*.user +
+                        Moderator.findAllByGroup(userGroupInstance)*.user +
+                        NormalUser.findAllByGroup(userGroupInstance)*.user
+            }
+
+            render(view: "showGroup", model: [userGroupInstance: userGroupInstance, canDelete: canDelete, canEdit: canEdit, users: users])
             return
         }
         redirect(action: "list")
@@ -197,30 +206,42 @@ class UserGroupController {
         }
     }
 
-   /* def complist = {
-        render userGroupService.complist(params) as JSON
-    }    */
-
-   def abandon(Long id) {
-       def userGroupInstance = UserGroup.get(id)
-       if (!userGroupInstance) {
+    def abandon(Long id, String newOwner) {
+        def userGroupInstance = UserGroup.get(id)
+        if (!userGroupInstance) {
            flash.message = message(code: 'default.not.found.message', args: [message(code: 'userGroup.label', default: 'UserGroup'), id])
            redirect(action: "list")
            return
-       }
+        }
 
-       def user = springSecurityService.currentUser
-       if (userGroupInstance.userIsAdmin(user)) {
-           Administrator.findByGroupAndUser(userGroupInstance, user).delete()
-       }
-       if (userGroupInstance.userIsModerator(user)) {
-           Moderator.findByGroupAndUser(userGroupInstance, user).delete()
-       }
-       if (userGroupInstance.userIsUser(user)) {
-           NormalUser.findByGroupAndUser(userGroupInstance, user).delete()
-       }
-       redirect(action: "listMyGroups")
-       return
+        def user = springSecurityService.currentUser
+        if (newOwner != null) {
+            user = User.get(newOwner)
+        }
+        if (userGroupInstance.userIsOwner(user)) {
+            if (params.new_owner != null && params.new_owner != '0') {
+                def new_owner = User.get(params.new_owner)
+                abandon(id, params.new_owner)
+                userGroupInstance.owner = new_owner
+            } else {
+                delete(id)
+                return
+            }
+        }
+        if (userGroupInstance.userIsAdmin(user)) {
+            Administrator.findByGroupAndUser(userGroupInstance, user).delete()
+        }
+        if (userGroupInstance.userIsModerator(user)) {
+            Moderator.findByGroupAndUser(userGroupInstance, user).delete()
+        }
+        if (userGroupInstance.userIsUser(user)) {
+            NormalUser.findByGroupAndUser(userGroupInstance, user).delete()
+        }
+        if (newOwner == null) {
+            redirect(action: "listMyGroups")
+            return
+        }
+    }
 
-   }
+
 }

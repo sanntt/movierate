@@ -146,10 +146,18 @@
 
             <div class="wrapper">
                 <g:form>
+
+                    <fieldset class="form">
+                        <g:actionSubmit action="abandon" value="${message(code: 'default.button.abandon.label', default: 'Abandonar')}" onclick="return confirm('${message(code: 'default.button.abandon.confirm.message', default: 'Esta seguro que desea abandonar el grupo?')}');" />
+
+                        <g:if test="${canDelete && users.size() > 0}">
+                            <g:render template="assign"/>
+                        </g:if>
+                    </fieldset>
                     <fieldset>
                         <g:hiddenField name="id" value="${userGroupInstance?.id}" />
 
-                        <g:actionSubmit action="abandon" value="${message(code: 'default.button.abandon.label', default: 'Abandonar')}" onclick="return confirm('${message(code: 'default.button.abandon.confirm.message', default: 'Esta seguro que desea abandonar el grupo?')}');" />
+
 
                         <g:if test="${canEdit}">
                             <g:link class="edit" action="edit" id="${userGroupInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
