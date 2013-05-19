@@ -200,4 +200,27 @@ class UserGroupController {
    /* def complist = {
         render userGroupService.complist(params) as JSON
     }    */
+
+   def abandon(Long id) {
+       def userGroupInstance = UserGroup.get(id)
+       if (!userGroupInstance) {
+           flash.message = message(code: 'default.not.found.message', args: [message(code: 'userGroup.label', default: 'UserGroup'), id])
+           redirect(action: "list")
+           return
+       }
+
+       def user = springSecurityService.currentUser
+       if (userGroupInstance.userIsAdmin(user)) {
+           Administrator.findByGroupAndUser(userGroupInstance, user).delete()
+       }
+       if (userGroupInstance.userIsModerator(user)) {
+           Moderator.findByGroupAndUser(userGroupInstance, user).delete()
+       }
+       if (userGroupInstance.userIsUser(user)) {
+           NormalUser.findByGroupAndUser(userGroupInstance, user).delete()
+       }
+       redirect(action: "listMyGroups")
+       return
+
+   }
 }
