@@ -182,10 +182,16 @@ aside{
 	margin-right: 20px;
 }
 
-.widget-cols>li.fourth-col{
-	margin-right: 0px;
+.widget-cols>li.fourth-col,
+.widget-cols-half>li.second-col{
+    margin-right: 0px;
 }
 
+.widget-cols-half>li{
+    width: 460px;
+    float: left;
+    margin-right: 20px;
+}
 
 /* COMBO NAVIGATION ------------------------------------------------------------*/
 #comboNav {
@@ -299,6 +305,11 @@ nav a{
 #loginForm{
 	position: relative;
 	float: left;
+}
+
+#registerForm{
+    position: relative;
+    float: right;
 }
 
 #contact-sidebar{

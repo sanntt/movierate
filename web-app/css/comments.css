@@ -222,7 +222,8 @@
 	color: #484848;
 }
 
-#loginForm{
+#loginForm,
+#registerForm{
 	color: #484848;
 }
 
@@ -241,7 +242,8 @@
 #contactForm textarea,
 #commentform input,
 #commentform textarea,
-#loginForm input{
+#loginForm input,
+#registerForm input{
 	padding: 10px 15px;
 	background: #eaeaea;
 	color: #484848;
@@ -259,7 +261,8 @@
 #contactForm textarea:focus,
 #commentform input:focus,
 #commentform textarea:focus,
-#loginForm input:focus{
+#loginForm input:focus,
+#registerForm input:focus{
 	background: #fff;
 	-webkit-box-shadow: 0px 0px 3px rgba(234,76,136,.4);
 	-moz-box-shadow: 0px 0px 3px rgba(234,76,136,.4);
@@ -270,7 +273,8 @@
 #commentFilm input[type="text"],
 #contactForm input[type="text"],
 #commentform input[type="text"],
-#loginForm input{
+#loginForm input,
+#registerForm input{
 	overflow: auto;
 	width: 200px;
 	margin-bottom: 20px;
@@ -313,6 +317,7 @@
 	 cursor: pointer;
 }
 
+#registerForm input[type="submit"],
 #loginForm input[type="submit"],
 #loginForm input[type="button"] {
 	width: auto;
