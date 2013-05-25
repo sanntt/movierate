@@ -1,164 +1,268 @@
+<!doctype html>
+<html class="no-js">
 
-<%@ page import="com.codeon.movierate.movie.Movie" %>
-<!DOCTYPE html>
-<html>
 	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'movie.label', default: 'Movie')}" />
-		<title><g:message code="default.show.label" args="[entityName]" /></title>
-        <style>
-            /* 'star-rating' component */
-        .starRate {position:relative; margin:20px; overflow:hidden; zoom:1;}
-        .starRate ul {width:160px; margin:0; padding:0;}
-        .starRate li {display:inline; list-style:none;}
-        .starRate a, .starRate b {background:url(${resource(dir: 'images', file: 'star_rate.gif')}) left top repeat-x;}
-        .starRate a {float:right; margin:0 80px 0 -144px; width:80px; height:16px; background-position:left 16px; color:#000; text-decoration:none;}
-        .starRate a:hover {background-position:left -32px;}
-        .starRate b {position:absolute; z-index:-1; width:80px; height:16px; background-position:left -16px;}
-        .starRate div b {left:0px; bottom:0px; background-position:left top;}
-        .starRate a span {position:absolute; left:-300px;}
-        .starRate a:hover span {left:90px; width:100%;}
+		<meta charset="utf-8"/>
+		<title>ZENI</title>
+		
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" media="all" href="${resource(dir: 'css', file: 'style.css')}"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+		
+		
+		<!-- JS -->
+		<script src="${resource(dir: 'js', file: 'jquery-1.6.4.min.js')}"></script>
+		<script src="${resource(dir: 'js', file: 'css3-mediaqueries.js')}"></script>
+		<script src="${resource(dir: 'js', file: 'custom.js')}"></script>
+		<script src="${resource(dir: 'js', file: 'tabs.js')}"></script>
+		
+		<!-- Tweet -->
+		<link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery.tweet.css')}" media="all"  /> 
+		<script src="${resource(dir: 'js/tweet', file: 'jquery.tweet.js')}" ></script> 
+		<!-- ENDS Tweet -->
+		
+		<!-- superfish -->
+		<link rel="stylesheet" media="screen" href="${resource(dir: 'css', file: 'superfish.css')}" />
+		<script  src="${resource(dir: 'js/superfish-1.4.8/js', file: 'hoverIntent.js')}"></script>
+		<script  src="${resource(dir: 'js/superfish-1.4.8/js', file: 'superfish.js')}"></script>
+		<script  src="${resource(dir: 'js/superfish-1.4.8/js', file: 'supersubs.js')}"></script>
+		<!-- ENDS superfish -->
+		
+		<!-- prettyPhoto -->
+		<script  src="${resource(dir: 'js/prettyPhoto/js', file: 'jquery.prettyPhoto.js')}"></script>
+		<link rel="stylesheet" href="${resource(dir: 'js/prettyPhoto/css', file: 'prettyPhoto.css')}"  media="screen" />
+		<!-- ENDS prettyPhoto -->
+		
+		<!-- poshytip -->
+		<link rel="stylesheet" href="${resource(dir: 'js/poshytip-1.1/src/tip-twitter', file: 'tip-twitter.css')}"  />
+		<link rel="stylesheet" href="${resource(dir: 'js/poshytip-1.1/src/tip-yellowsimple', file: 'tip-yellowsimple.css')}"  />
+		<script  src="${resource(dir: 'js/poshytip-1.1/src', file: 'jquery.poshytip.min.js')}"></script>
+		<!-- ENDS poshytip -->
+		
+		<!-- GOOGLE FONTS -->
+		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300' rel='stylesheet' type='text/css'>
+		
+		<!-- Flex Slider -->
+		<link rel="stylesheet" href="${resource(dir: 'css', file: 'flexslider.css')}" >
+		<script src="${resource(dir: 'js', file: 'jquery.flexslider-min.js')}"></script>
+		<!-- ENDS Flex Slider -->
+		
+		<!-- Less framework -->
+		<link rel="stylesheet" media="all" href="${resource(dir: 'css', file: 'lessframework.css')}"/>
+		
+		<!-- modernizr -->
+		<script src="${resource(dir: 'js', file: 'modernizr.js')}"></script>
+		
+		<!-- SKIN -->
+		<link rel="stylesheet" media="all" href="${resource(dir: 'css', file: 'skin.css')}"/>
+		
+		<!-- reply move form -->
+		<script src="${resource(dir: 'js', file: 'moveform.js')}"></script>
+		
 
-        </style>
 	</head>
-	<body>
-		<a href="#show-movie" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-                <sec:ifAllGranted roles="ROLE_ADMIN">
-				    <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-                </sec:ifAllGranted>
-			</ul>
+	
+	<body lang="en">
+	
+		<header class="clearfix">
+			<div class="wrapper">
+				<a href="index.html" id="logo"><g:img dir="img" file="logo.png" alt="Zeni"/></a>
+				
+				<nav>
+					<ul id="nav" class="sf-menu">
+						<li><a href="${createLink(uri: '/')}">INICIO</a></li>
+                        <li class="current-menu-item"><g:link controller="userGroup" action="list">MIS GRUPOS</g:link></li>
+                        <!--<li><a href="page.html">PERFIL</a></li>         -->
+                        <!--<li><a href="contact.html">CONTACTO</a></li>-->
+                        <sec:ifLoggedIn>
+                            <li><g:link controller="logout" action="index">DESCONECTARSE</g:link></li>
+                        </sec:ifLoggedIn>
+					</ul>
+					<div id="combo-holder"></div>
+				</nav>
+				
+			</div>
+		</header>
+		
+		
+		<!-- MAIN -->
+		<div id="main">	
+			<div class="wrapper clearfix">
+	        	
+				<!-- page content -->
+	        	<div id="page-content" class="clearfix">
+					
+					
+					
+					<!-- floated content -->
+					<div class="floated-content">
+
+                        <g:if test="${movieInstance?.title}">
+						    <h2 class="page-heading">
+                                <span>${movieInstance.toString().toUpperCase()}</span>
+                            </h2>
+                        </g:if>
+
+                        <g:if test="${movieInstance?.actors}">
+                            <h4>Actores</h4>
+						    <p>
+                                <g:each in="${movieInstance.actors}" var="actor" status="i">
+                                    <g:if test="${i == movieInstance.actors.size() - 1}">
+                                        ${actor}
+                                    </g:if>
+                                    <g:else>
+                                        ${actor},
+                                    </g:else>
+                                </g:each>
+						    </p>
+                        </g:if>
+
+                        <g:if test="${movieInstance?.directors}">
+                            <g:if test="${movieInstance.directors.size() == 1}">
+                                <h4>Director</h4>
+                            </g:if>
+                            <g:else>
+                                <h4>Directores</h4>
+                            </g:else>
+                            <p>
+                                <g:each in="${movieInstance.directors}" var="director" status="i">
+                                    <g:if test="${i == movieInstance.directors.size() - 1}">
+                                        ${director}
+                                    </g:if>
+                                    <g:else>
+                                        ${director},
+                                    </g:else>
+                                </g:each>
+                            </p>
+                        </g:if>
+
+                        <g:if test="${movieInstance?.genres}">
+                            <g:if test="${movieInstance.genres.size() == 1}">
+                                <h4>G&eacute;nero</h4>
+                            </g:if>
+                            <g:else>
+                                <h4>G&eacute;neros</h4>
+                            </g:else>
+                            <p>
+                                <g:each in="${movieInstance.genres}" var="genero" status="i">
+                                    <g:if test="${i == movieInstance.genres.size() - 1}">
+                                        ${genero}
+                                    </g:if>
+                                    <g:else>
+                                        ${genero},
+                                    </g:else>
+                                </g:each>
+                            </p>
+                        </g:if>
+
+                        <g:if test="${movieInstance?.plot}">
+                            <h4>Trama</h4>
+                            <p>${movieInstance?.plot}</p>
+                        </g:if>
+						
+					</div>
+					<!-- ends floated content -->
+					
+					<!-- sidebar -->
+		        	<aside id="sidebar">
+                        <g:img uri="${movieInstance?.poster}"></g:img>
+		        		<em id="corner"></em>
+		        	</aside>
+					<!-- ENDS sidebar -->
+					
+				</div>	        	
+	        	<!--  page content-->
+	        	
+	        	
+
+	        	
+			</div>
 		</div>
-		<div id="show-movie" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<ol class="property-list movie">
-			
-				<g:if test="${movieInstance?.title}">
-				<li class="fieldcontain">
-					<span id="title-label" class="property-label"><g:message code="movie.title.label" default="Title" /></span>
-					
-						<span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${movieInstance}" field="title"/></span>
-					
-				</li>
-				</g:if>
-
-				<g:if test="${movieInstance?.actors}">
-				<li class="fieldcontain">
-					<span id="actors-label" class="property-label"><g:message code="movie.actors.label" default="Actors" /></span>
-					
-						<g:each in="${movieInstance.actors}" var="a">
-						<span class="property-value" aria-labelledby="actors-label"><g:link controller="actor" action="show" id="${a.id}">${a}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${movieInstance?.genres}">
-				<li class="fieldcontain">
-					<span id="genres-label" class="property-label"><g:message code="movie.genres.label" default="Genres" /></span>
-					
-						<g:each in="${movieInstance.genres}" var="g">
-						<span class="property-value" aria-labelledby="genres-label"><g:link controller="genre" action="show" id="${g.id}">${g}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-
-				<g:if test="${movieInstance?.directors}">
-				<li class="fieldcontain">
-					<span id="directors-label" class="property-label"><g:message code="movie.directors.label" default="Directors" /></span>
-					
-						<g:each in="${movieInstance.directors}" var="d">
-						<span class="property-value" aria-labelledby="directors-label"><g:link controller="director" action="show" id="${d.id}">${d}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${movieInstance?.plot}">
-				<li class="fieldcontain">
-					<span id="plot-label" class="property-label"><g:message code="movie.plot.label" default="Plot" /></span>
-					
-						<span class="property-value" aria-labelledby="plot-label"><g:fieldValue bean="${movieInstance}" field="plot"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${movieInstance?.poster}">
-				<li class="fieldcontain">
-					<span id="poster-label" class="property-label"><g:message code="movie.poster.label" default="Poster" /></span>
-					
-						<span class="property-value" aria-labelledby="poster-label"><g:fieldValue bean="${movieInstance}" field="poster"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${movieInstance?.year}">
-				<li class="fieldcontain">
-					<span id="year-label" class="property-label"><g:message code="movie.year.label" default="Year" /></span>
-					
-						<span class="property-value" aria-labelledby="year-label"><g:fieldValue bean="${movieInstance}" field="year"/></span>
-					
-				</li>
-				</g:if>
-
+		<!-- ENDS MAIN -->
+		
+		
+		<footer>
+			<div class="wrapperOnly">
                 <g:if test="${gId != null}">
-                <g:form method="post" >
-                    <g:hiddenField name="id" value="${movieInstance?.id}" />
-                    <g:hiddenField name="gId" value="${gId}" />
-                    <fieldset class="form">
+                <div class="wrapper">
+                    <ul  class="widget-cols clearfix">
+                        <li class="first-col">
 
-                            <li class="fieldcontain">
-                                <span id="comment-label" class="property-label"><g:message code="movie.comment.label" default="Comment" /></span>
+                            <div>
+                                <!-- Comment -->
+                                <script src="${resource(dir: 'js', file: 'form-validation.js')}"></script>
+                                <h4>Comentar!</h4>
+                                <g:form method="post" name="commentFilm" action="#">
+                                    <g:hiddenField name="id" value="${movieInstance?.id}" />
+                                    <g:hiddenField name="gId" value="${gId}" />
+                                    <fieldset>
+                                        <g:textArea name="comments" value="" id="comments" rows="5" cols="20" class="form-poshytip" title="Ingrese su comentario"></g:textArea>
 
-                                <span class="property-value" aria-labelledby="comment-label"><g:textField name="comment" value=""/></span>
+                                        <p><g:actionSubmit value="Comentar" id="submit" name="submit" action="comment" params="['xx':'aa']"></g:actionSubmit>
 
-                            </li>
+                                            <span id="error" class="warning">Message</span></p>
 
-                    </fieldset>
-                    <fieldset class="buttons">
-                        <g:actionSubmit class="save" action="comment" value="${message(code: 'default.button.comment.label', default: 'Comment')}" />
-                        <g:actionSubmit class="save" action="rate" value="${message(code: 'default.button.rate.label', default: 'Rate')}" />
-                    </fieldset>
-                    <div class="starRate">
-                        <g:radio name="rating" value="1"/>
-                        <g:radio name="rating" value="2"/>
-                        <g:radio name="rating" value="3"/>
-                        <g:radio name="rating" value="4"/>
-                        <g:radio name="rating" value="5"/>
-                    </div>
+                                    </fieldset>
+
+                                </g:form>
+                                <p id="sent-form-msg" class="success">Su comentario ha sido enviado!</p>
+                            </div>
+
+                            <g:if test="${comments?.size() > 0}">
+                                <div class="widget-block">
+                                    <h4>Comentarios recientes</h4>
+                                    <g:each in="${comments}" var="comment" status="i">
+                                        <div class="recent-post">
+                                            <a href="#" class="thumb"><g:img dir="img/dummies" file="54x54.gif" alt="Post"/></a>
+                                            <div class="post-head">
+
+                                                <g:form method="post" controller="comment" name="delete" action="#">
+                                                    <fieldset>
+                                                        <p>
+                                                            <span>${comment.commentText}</span>
+                                                            <span>${comment.commenter.toString()} <g:formatDate format="dd-MM-yyyy HH:mm:ss" date="${comment.dateCreated}"/></span>
+
+                                                            <g:if test="${comment.commenter == loggedUser || canDelete}">
+                                                                <g:hiddenField name="id" value="${comment?.id}" />
+                                                                <g:hiddenField name="mId" value="${movieInstance?.id}" />
+                                                                <g:hiddenField name="gId" value="${gId}" />
+                                                                <p><g:actionSubmit value="Eliminar" name="submit" action="delete"></g:actionSubmit>
+                                                            </g:if>
+
+                                                        </p>
+
+                                                    </fieldset>
+
+                                                </g:form>
 
 
-                </g:form>
-                    ${ratings}
+                                            </div>
+                                        </div>
+                                    </g:each>
+                                </div>
+                            </g:if>
+                        </li>
+
+                    </ul>
+                </div>
                 </g:if>
-
-
-
-            </ol>
-            <sec:ifAllGranted roles="ROLE_ADMIN">
-                <g:form>
-                    <fieldset class="buttons">
-                        <g:hiddenField name="id" value="${movieInstance?.id}" />
-                        <g:link class="edit" action="edit" id="${movieInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-                        <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-                    </fieldset>
-                </g:form>
-            </sec:ifAllGranted>
-
-            <g:each in="${comments?}" var="comment">
-                <li>${comment.toString()}
-
-
-
-                </li>
-            </g:each>
-		</div>
+				
+				<div class="footer-bottom">
+					<div class="right">
+						<ul id="social-bar">
+							<li><a href="http://www.facebook.com/pages/Ansimuz/224538697564461"  title="Become a fan" class="poshytip"><g:img dir="img/social" file="facebook.png" alt="Facebook"/></a></li>
+							<li><a href="https://twitter.com/ansimuz" title="Follow my tweets" class="poshytip"><g:img dir="img/social" file="twitter.png" alt="Twitter"/></a></li>
+							<li><a href="https://plus.google.com/109030791898417339180/posts"  title="Add to the circle" class="poshytip"><g:img dir="img/social" file="plus.png" alt="Google plus"/></a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</footer>
+					
 	</body>
+	
 </html>

@@ -1,30 +1,31 @@
 <%@ page import="com.codeon.movierate.group.UserGroup" %>
 
+<div class="fieldcontain ${hasErrors(bean: userGroupInstance, field: 'name', 'error')} ">
+    <label for="name">
+        <!--<g:message code="userGroup.name.label" default="Name" />-->
 
+    </label>
+    <g:textField name="name" value="${userGroupInstance?.name}" placeholder="Nombre" title="Ingrese el nombre del grupo" class="form-poshytip"/>
+</div>
 
 <div class="fieldcontain ${hasErrors(bean: userGroupInstance, field: 'movies', 'error')} ">
 	<label for="movies">
-		<g:message code="userGroup.movies.label" default="Movies" />
+		<!--<g:message code="userGroup.movies.label" default="Movies" />-->
 		
 	</label>
-	<g:select name="movies" from="${com.codeon.movierate.movie.Movie.list(sort:"title")}" multiple="multiple" optionKey="id" size="5" value="${userGroupInstance?.movies*.id}" class="many-to-many"/>
+	<g:select name="movies" from="${com.codeon.movierate.movie.Movie.list(sort:"title")}" multiple="multiple" optionKey="id" size="5" value="${userGroupInstance?.movies*.id}"
+              title="Seleccione las pel&iacute;culas" class="many-to-many form-poshytip"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userGroupInstance, field: 'name', 'error')} ">
-	<label for="name">
-		<g:message code="userGroup.name.label" default="Name" />
-		
-	</label>
-	<g:textField name="name" value="${userGroupInstance?.name}"/>
-</div>
 
+<!--
 <div class="fieldcontain ${hasErrors(bean: userGroupInstance, field: 'owner', 'error')}">
 	<label for="owner">
 		<g:message code="userGroup.owner.label" default="Owner" />
 	</label>
     <span><g:fieldValue bean="${userGroupInstance}" field="owner"/></span>
 </div>
-<!--
+
 <div class="fieldcontain ${hasErrors(bean: userGroupInstance, field: 'users', 'error')} ">
 	<label for="users">
 		<g:message code="userGroup.users.label" default="Users" />
@@ -42,12 +43,8 @@
 
 <div class="fieldcontain ${hasErrors(bean: userGroupInstance, field: 'users', 'error')} ">
     <label for="normals">
-        <g:message code="userGroup.users.label" default="Users" />
+        <!--<g:message code="userGroup.users.label" default="Users" />     -->
     </label>
-    <g:select name="normalUsers" from="${com.codeon.movierate.user.User.list(sort:"username")}" multiple="multiple" optionKey="id" size="5" value="${userGroupInstance?.users*.user?.id}" class="many-to-many"/>
-</div>
-
-
-
+    <g:select name="normalUsers" from="${com.codeon.movierate.user.User.list(sort:"username")}" multiple="multiple" optionKey="id" size="5" value="${userGroupInstance?.users*.user?.id}" class="many-to-many form-poshytip" title="Seleccione los miembros"/>
 </div>
 

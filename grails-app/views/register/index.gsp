@@ -74,7 +74,7 @@
         <nav>
             <ul id="nav" class="sf-menu">
                 <li class="current-menu-item"><a href="index.html">INICIO</a></li>
-                <li><g:link controller="userGroup" action="listMyGroups">MIS GRUPOS</g:link></li>
+                <li><g:link controller="userGroup" action="list">MIS GRUPOS</g:link></li>
                 <li><a href="page.html">PERFIL</a></li>
                 <li><a href="contact.html">CONTACTO</a></li>
             </ul>

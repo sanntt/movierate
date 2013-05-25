@@ -74,9 +74,12 @@
         <nav>
             <ul id="nav" class="sf-menu">
                 <li class="current-menu-item"><a href="index.html">INICIO</a></li>
-                <li><g:link controller="userGroup" action="listMyGroups">MIS GRUPOS</g:link></li>
-                <li><a href="page.html">PERFIL</a></li>
-                <li><a href="contact.html">CONTACTO</a></li>
+                <li><g:link controller="userGroup" action="list">MIS GRUPOS</g:link></li>
+                <!--<li><a href="page.html">PERFIL</a></li>         -->
+                <!--<li><a href="contact.html">CONTACTO</a></li>-->
+                <sec:ifLoggedIn>
+                    <li><g:link controller="logout" action="index">DESCONECTARSE</g:link></li>
+                </sec:ifLoggedIn>
             </ul>
             <div id="combo-holder"></div>
         </nav>
@@ -157,10 +160,10 @@
                         <figcaption>
                             <strong>${m.title}</strong>
                             <em>${m.year}</em>
-                            <g:link class="opener" controller="movie" action="showMovieForGroup" id="${m.id}"></g:link>
+                            <g:link class="opener" controller="movie" action="show" id="${m.id}"></g:link>
                         </figcaption>
 
-                        <g:link class="thumb" controller="movie" action="showMovieForGroup" id="${m.id}"><img class="movie-poster" src="${m.poster}" alt="Alt text"/></g:link>
+                        <g:link class="thumb" controller="movie" action="show" id="${m.id}"><img class="movie-poster" src="${m.poster}" alt="Alt text"/></g:link>
                         </figure>
                     </g:each>
                 </div>

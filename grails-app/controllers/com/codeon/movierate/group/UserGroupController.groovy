@@ -19,19 +19,19 @@ class UserGroupController {
         redirect(action: "list", params: params)
     }
 
-    def list(Integer max) {
+    /*def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         [userGroupInstanceList: UserGroup.list(params), userGroupInstanceTotal: UserGroup.count()]
-    }
+    } */
 
-    def listMyGroups() {
+    def list() {
         User user = springSecurityService.currentUser
         def asOwner = UserGroup.findAllByOwner(user)
         def asAdmin = Administrator.findAllByUser(user).group
         def asMod = Moderator.findAllByUser(user).group
         def asUser = NormalUser.findAllByUser(user).group
         def model = [userGroupOwner: asOwner, userGroupAdmined: asAdmin, userGroupModed: asMod, userGroupAsUser: asUser]
-        render(view: "page_grails", model: model)
+        render(view: "list", model: model)
         return
     }
 
@@ -78,12 +78,12 @@ class UserGroupController {
             def users = []
             if (isOwner) {
                 // We use this in case owner wants to abandon group
-                users = Administrator.findAllByGroup(userGroupInstance)*.user +
+                users = (Administrator.findAllByGroup(userGroupInstance)*.user +
                         Moderator.findAllByGroup(userGroupInstance)*.user +
-                        NormalUser.findAllByGroup(userGroupInstance)*.user
+                        NormalUser.findAllByGroup(userGroupInstance)*.user).unique()
             }
 
-            render(view: "showGroup", model: [userGroupInstance: userGroupInstance, canDelete: canDelete, canEdit: canEdit, users: users])
+            render(view: "show", model: [userGroupInstance: userGroupInstance, canDelete: canDelete, canEdit: canEdit, users: users])
             return
         }
         redirect(action: "list")
@@ -238,7 +238,7 @@ class UserGroupController {
             NormalUser.findByGroupAndUser(userGroupInstance, user).delete()
         }
         if (newOwner == null) {
-            redirect(action: "listMyGroups")
+            redirect(action: "list")
             return
         }
     }

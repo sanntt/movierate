@@ -48,7 +48,7 @@ class MovieController {
             return
         }
 
-        render(view: "page_grails", model: [movieInstance: movieInstance])
+        render(view: "show", model: [movieInstance: movieInstance])
         return
     }
 
@@ -77,7 +77,7 @@ class MovieController {
         }
 
         def user = springSecurityService.currentUser
-        render(view: "page_grails", model: [movieInstance: movieInstance, gId: params.gId, comments: comments, ratings: average, loggedUser: user, canDelete: (user == userGroupInstace.owner || Moderator.findByGroupAndUser(userGroupInstace, user) != null)])
+        render(view: "show", model: [movieInstance: movieInstance, gId: params.gId, comments: comments, ratings: average, loggedUser: user, canDelete: (user == userGroupInstace.owner || Moderator.findByGroupAndUser(userGroupInstace, user) != null)])
         return
     }
 
