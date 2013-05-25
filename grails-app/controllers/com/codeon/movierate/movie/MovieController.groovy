@@ -19,7 +19,10 @@ class MovieController {
     }
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 14, 100)
+        params.sort = "created"
+        params.order = "desc"
+
         [movieInstanceList: Movie.list(params), movieInstanceTotal: Movie.count()]
     }
 

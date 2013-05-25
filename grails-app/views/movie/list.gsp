@@ -1,61 +1,60 @@
+<!doctype html>
+<html class="no-js">
 
-<%@ page import="com.codeon.movierate.movie.Movie" %>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'movie.label', default: 'Movie')}" />
-		<title><g:message code="default.list.label" args="[entityName]" /></title>
-	</head>
-	<body>
-		<a href="#list-movie" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+<g:render template="../layouts/head"></g:render>
 
-                <sec:ifAllGranted roles="ROLE_ADMIN">
-				    <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-                </sec:ifAllGranted>
-			</ul>
-		</div>
-		<div id="list-movie" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<table>
-				<thead>
-					<tr>
-					
-						<g:sortableColumn property="title" title="${message(code: 'movie.title.label', default: 'Title')}" />
-					
-						<g:sortableColumn property="plot" title="${message(code: 'movie.plot.label', default: 'Plot')}" />
-					
-						<g:sortableColumn property="poster" title="${message(code: 'movie.poster.label', default: 'Poster')}" />
-					
-						<g:sortableColumn property="year" title="${message(code: 'movie.year.label', default: 'Year')}" />
-					
-					</tr>
-				</thead>
-				<tbody>
-				<g:each in="${movieInstanceList}" status="i" var="movieInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${movieInstance.id}">${fieldValue(bean: movieInstance, field: "title")}</g:link></td>
-					
-						<td>${fieldValue(bean: movieInstance, field: "plot")}</td>
-					
-						<td>${fieldValue(bean: movieInstance, field: "poster")}</td>
-					
-						<td>${fieldValue(bean: movieInstance, field: "year")}</td>
-					
-					</tr>
-				</g:each>
-				</tbody>
-			</table>
-			<div class="pagination">
-				<g:paginate total="${movieInstanceTotal}" />
-			</div>
-		</div>
-	</body>
+<body lang="en">
+
+<g:render template="../layouts/movies_header"></g:render>
+
+<!-- MAIN -->
+<div id="main">
+    <div class="wrapper">
+        <!-- home-block -->
+        <div class="home-block" >
+            <h2 class="home-block-heading"><span>ULTIMAS PELICULAS</span></h2>
+            <g:if test="${movieInstanceTotal > 0}">
+                <div class="one-fifth-thumbs clearfix">
+
+                    <g:each in="${movieInstanceList}" var="movie" status="i">
+                        <g:if test="${((i+1) % 7    ) == 0}">
+                            <figure class="last">
+                        </g:if>
+                        <g:else>
+                            <figure>
+                        </g:else>
+                        <figcaption>
+                            <strong>${movie.title} ${i} ${(i+1 % 3)}</strong>
+                            <em>${movie.year}</em>
+                            <g:link class="opener" controller="movie" action="show" id="${movie.id}"></g:link>
+                        </figcaption>
+
+                        <g:link class="thumb" controller="movie" action="show" id="${movie.id}"><img class="movie-poster" src="${movie.poster}" alt="Could not load poster"/></g:link>
+                        </figure>
+                    </g:each>
+                </div>
+            </g:if>
+        </div>
+        <!-- ENDS home-block -->
+
+
+
+    </div>
+</div>
+<!-- ENDS MAIN -->
+
+
+<footer>
+    <div class="wrapperOnly">
+        <div class="pagination">
+            <g:paginate controller="movie" action="list" total="${movieInstanceTotal}"/>
+        </div>
+
+        <g:render template="../layouts/footer"></g:render>
+
+    </div>
+</footer>
+
+</body>
+
 </html>
