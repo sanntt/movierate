@@ -6,7 +6,6 @@ import com.codeon.movierate.user.User
 import grails.plugins.springsecurity.Secured
 import org.springframework.dao.DataIntegrityViolationException
 
-@Secured(['ROLE_USER', 'ROLE_ADMIN'])
 class MovieController {
     def gId
     def average

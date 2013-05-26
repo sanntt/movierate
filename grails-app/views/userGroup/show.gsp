@@ -36,14 +36,14 @@
             <div class="one-fifth-thumbs clearfix">
 
                 <g:each in="${userGroupInstance.movies}" var="movie" status="i">
-                    <g:if test="${((i+1) % 7    ) == 0}">
+                    <g:if test="${((i+1) % 7) == 0}">
                         <figure class="last">
                     </g:if>
                     <g:else>
                         <figure>
                     </g:else>
                         <figcaption>
-                            <strong>${movie.title} ${i} ${(i+1 % 3)}</strong>
+                            <strong>${movie.title}</strong>
                             <em>${movie.year}</em>
                             <g:link class="opener" controller="movie" action="showMovieForGroup" id="${movie.id}" params='[gId: "${userGroupInstance.id}"]'></g:link>
                         </figcaption>

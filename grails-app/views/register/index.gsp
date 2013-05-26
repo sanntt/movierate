@@ -1,11 +1,11 @@
 <!doctype html>
 <html class="no-js">
 
-<g:render template="../layouts/head"></g:render>
+<g:render template="../layouts/head"/>
 
 <body lang="en">
 
-<g:render template="../layouts/index_header"></g:render>
+<g:render template="../layouts/index_header"/>
 
 <!-- MAIN -->
 <div id="main">
@@ -28,7 +28,10 @@
                             <h2 class="heading">REGISTRARSE</h2>
                             <fieldset>
                                 <div>
-                                    <input name="username" type="text" class="form-poshytip" title="Ingrese su usuario" placeholder="Usuario"/>
+                                    <label>
+                                        <input name="username" type="text" class="form-poshytip"
+                                               title="Ingrese su usuario" placeholder="Usuario"/>
+                                    </label>
                                 </div>
                                 <div>
                                     <input name="email" type="text" class="form-poshytip" title="Ingrese su email" placeholder="Email" />
