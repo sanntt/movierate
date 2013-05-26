@@ -14,7 +14,7 @@
         <div class="home-block">
             <h2 class="home-block-heading"><span>NUEVO GRUPO</span></h2>
 
-            <g:form action="save" name="loginForm" >
+            <g:form action="save" name="normalForm" >
                 <g:hiddenField name="id" value="${userGroupInstance?.id}" />
                 <g:hiddenField name="version" value="${userGroupInstance?.version}" />
 

@@ -302,6 +302,10 @@ nav a{
 	margin-right: 20px;
 }
 
+#normalForm{
+    position: relative;
+}
+
 #loginForm{
 	position: relative;
 	float: left;

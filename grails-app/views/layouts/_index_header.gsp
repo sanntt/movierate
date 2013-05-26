@@ -13,6 +13,9 @@
                 <sec:ifLoggedIn>
                     <li><g:link controller="logout" action="index">DESCONECTARSE</g:link></li>
                 </sec:ifLoggedIn>
+                <sec:ifNotLoggedIn>
+                    <li><g:link controller="register" action="index">REGISTRARSE</g:link></li>
+                </sec:ifNotLoggedIn>
             </ul>
             <div id="combo-holder"></div>
         </nav>

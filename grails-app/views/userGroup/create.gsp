@@ -14,7 +14,7 @@
         <div class="home-block">
         <h2 class="home-block-heading"><span>NUEVO GRUPO</span></h2>
 
-        <g:form action="save" name="loginForm" >
+        <g:form action="save" name="normalForm" >
             <fieldset class="form">
                 <g:render template="form"/>
             </fieldset>

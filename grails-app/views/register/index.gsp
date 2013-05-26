@@ -12,6 +12,13 @@
     <div class="wrapper">
         <!-- page content -->
         <div id="page-content" class="clearfix">
+
+        <g:if test='${emailSent}'>
+            <div style="text-align: center;">
+                <p><g:message code='spring.security.ui.register.sent'/></p>
+            </div>
+        </g:if>
+
             <ul  class="widget-cols-half clearfix">
                 <li class="first-col">
 
@@ -39,7 +46,6 @@
                         <em id="corner"></em>
                     </div>
                 </li>
-
                 <li class="second-col">
                     <form id="loginForm" action="${postUrl}" method="post">
                         <h2 class="heading">INGRESAR</h2>
