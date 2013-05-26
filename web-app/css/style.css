@@ -166,7 +166,8 @@ aside{
 
 /* WIDGET COLS ------------------------------------------------------------*/
 
-.widget-cols h4{
+.widget-cols h4,
+.widget-cols-half h4 {
 	margin-bottom: 21px;
 }
 
@@ -295,11 +296,19 @@ nav a{
 
 /* CONTACT CONTENT ------------------------------------------------------------*/
 
-#contactForm, #commentFilm {
+#contactForm {
 	position: relative;
 	width: 700px;
 	float: left;
 	margin-right: 20px;
+}
+
+#commentFilm {
+	position: relative;
+}
+
+#commentFilm textarea {
+    resize: none;
 }
 
 #normalForm{
@@ -759,8 +768,9 @@ nav a{
     height: 160px;
 }
 
-
-
+.movie-poster-resize {
+    width: 210px;
+}
 
 /* BLOG ------------------------------------------------------------*/
 

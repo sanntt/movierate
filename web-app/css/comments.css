@@ -1,9 +1,7 @@
 /* COMMENTS ------------------------------------------------------------*/
 
 
-#comments-wrap{
-	padding-top: 40px;
-}
+#comments-wrap{}
 
 .heading{
 	margin-bottom: 21px;
@@ -59,7 +57,7 @@
 }
 
 .commentlist {
-	margin: 0 0 30px 0;
+	margin: 0;
 	list-style-type: none;
 	font-size: 13px;
 }
@@ -302,13 +300,15 @@
     overflow: auto;
 }
 
-#commentFilm  textarea,
 #contactForm  textarea,
 #commentform textarea{
 	width: 90%;
 	height: 230px;
 }
 
+#commentFilm textarea {
+    width: 90%;
+}
 
 #commentFilm input[type="submit"],
 #contactForm input[type="submit"],
@@ -337,6 +337,7 @@
 	 cursor: pointer;
 }
 
+.normalButton,
 #normalForm input[type="submit"],
 #registerForm input[type="submit"],
 #loginForm input[type="submit"],
@@ -361,6 +362,7 @@
 	 cursor: pointer;
 }
 
+.normalButton:hover,
 #commentFilm input[type="submit"]:hover,
 #contactForm input[type="submit"]:hover,
 #commentform input[type="submit"]:hover,

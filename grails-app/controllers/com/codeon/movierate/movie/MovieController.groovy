@@ -64,7 +64,8 @@ class MovieController {
 
         def userGroupInstace = UserGroup.get(params.gId)
 
-        def comments = Comment.findAllByMovieAndGroup(movieInstance, userGroupInstace)
+        def comments = Comment.findAllByMovieAndGroup(movieInstance, userGroupInstace, [max: 10, sort: "dateCreated", order: "desc", offset: params.offset])
+        def totalComments = Comment.countByMovieAndGroup(movieInstance, userGroupInstace)
         String average = '0'
         BigDecimal total = BigDecimal.ZERO
         BigDecimal i = BigDecimal.ZERO
@@ -79,7 +80,7 @@ class MovieController {
         }
 
         def user = springSecurityService.currentUser
-        render(view: "show", model: [movieInstance: movieInstance, gId: params.gId, comments: comments, ratings: average, loggedUser: user, canDelete: (user == userGroupInstace.owner || Moderator.findByGroupAndUser(userGroupInstace, user) != null)])
+        render(view: "show", model: [movieInstance: movieInstance, gName: userGroupInstace.name, gId: params.gId, comments: comments, totalComments: totalComments, ratings: average, loggedUser: user, canDelete: (user == userGroupInstace.owner || Moderator.findByGroupAndUser(userGroupInstace, user) != null)])
         return
     }
 

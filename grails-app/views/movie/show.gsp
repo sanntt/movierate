@@ -1,11 +1,11 @@
 <!doctype html>
 <html class="no-js">
 
-<g:render template="../layouts/head"></g:render>
+<g:render template="../layouts/head"/>
 	
 <body lang="en">
 
-<g:render template="../layouts/movies_header"></g:render>
+<g:render template="../layouts/movies_header"/>
 
 <!-- MAIN -->
     <div id="main">
@@ -87,7 +87,7 @@
 
                 <!-- sidebar -->
                 <aside id="sidebar">
-                    <g:img uri="${movieInstance?.poster}"></g:img>
+                    <g:img uri="${movieInstance?.poster}" class="movie-poster-resize"/>
                     <em id="corner"></em>
                 </aside>
                 <!-- ENDS sidebar -->
@@ -107,69 +107,78 @@
         <div class="wrapperOnly">
             <g:if test="${gId != null}">
             <div class="wrapper">
-                <ul  class="widget-cols clearfix">
+                <h2 class="home-block-heading"><span>${gName}</span></h2>
+                <ul  class="widget-cols-half clearfix">
                     <li class="first-col">
 
                         <div>
                             <!-- Comment -->
                             <script src="${resource(dir: 'js', file: 'form-validation.js')}"></script>
+
                             <h4>Comentar!</h4>
                             <g:form method="post" name="commentFilm" action="#">
                                 <g:hiddenField name="id" value="${movieInstance?.id}" />
                                 <g:hiddenField name="gId" value="${gId}" />
                                 <fieldset>
-                                    <g:textArea name="comments" value="" id="comments" rows="5" cols="20" class="form-poshytip" title="Ingrese su comentario"></g:textArea>
+                                    <g:textArea name="comments" value="" id="comments" rows="5" cols="20" class="form-poshytip" title="Ingrese su comentario" maxlength="250"/>
 
-                                    <p><g:actionSubmit value="Comentar" id="submit" name="submit" action="comment" params="['xx':'aa']"></g:actionSubmit>
-
-                                        <span id="error" class="warning">Message</span></p>
-
+                                    <p><g:actionSubmit value="Comentar" id="submit" name="submit" action="comment"/>
                                 </fieldset>
 
                             </g:form>
                             <p id="sent-form-msg" class="success">Su comentario ha sido enviado!</p>
+
+
+
+
+                            <g:if test="${comments?.size() > 0}">
+                                <!-- comments list -->
+                                <div id="comments-wrap">
+                                    <h3 class="heading">${totalComments} COMENTARIOS</h3>
+                                    <ol class="commentlist">
+
+                                        <g:each in="${comments}" var="comment" status="i">
+                                        <li class="comment even thread-even depth-1" id="li-comment-1">
+
+
+                                            <div id="comment-1" class="comment-body clearfix">
+                                               <!-- <img alt='' src='http://0.gravatar.com/avatar/4f64c9f81bb0d4ee969aaf7b4a5a6f40?s=35&amp;d=&amp;r=G' class='avatar avatar-35 photo' height='35' width='35' />   -->
+                                                <div class="comment-author vcard">${comment.commenter.toString()}</div>
+                                                <div class="comment-meta commentmetadata">
+                                                    <span class="comment-date"><g:formatDate format="dd-MM-yyyy HH:mm:ss" date="${comment.dateCreated}"/></span>
+                                                    <g:if test="${comment.commenter == loggedUser || canDelete}">
+                                                        <g:form method="post" controller="comment" name="delete" action="#">
+                                                            <fieldset>
+                                                                <g:hiddenField name="id" value="${comment?.id}" />
+                                                                <g:hiddenField name="mId" value="${movieInstance?.id}" />
+                                                                <g:hiddenField name="gId" value="${gId}" />
+                                                                <span class="comment-reply-link-wrap"><g:actionSubmit value="Eliminar" name="submit" action="delete" class="normalButton"/></span>
+                                                            </fieldset>
+
+                                                        </g:form>
+                                                    </g:if>
+                                                </div>
+                                                <div class="comment-inner">
+                                                    <p>${comment.commentText}</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        </g:each>
+                                    </ol>
+                                </div>
+                                <!-- ENDS comments list -->
+                                <div class="pagination">
+                                    <g:paginate controller="movie" action="showMovieForGroup" total="${totalComments}" id="${movieInstance?.id}" params='[gId: "${gId}"]'/>
+                                </div>
+                            </g:if>
                         </div>
-
-                        <g:if test="${comments?.size() > 0}">
-                            <div class="widget-block">
-                                <h4>Comentarios recientes</h4>
-                                <g:each in="${comments}" var="comment" status="i">
-                                    <div class="recent-post">
-                                        <a href="#" class="thumb"><g:img dir="img/dummies" file="54x54.gif" alt="Post"/></a>
-                                        <div class="post-head">
-
-                                            <g:form method="post" controller="comment" name="delete" action="#">
-                                                <fieldset>
-                                                    <p>
-                                                        <span>${comment.commentText}</span>
-                                                        <span>${comment.commenter.toString()} <g:formatDate format="dd-MM-yyyy HH:mm:ss" date="${comment.dateCreated}"/></span>
-
-                                                        <g:if test="${comment.commenter == loggedUser || canDelete}">
-                                                            <g:hiddenField name="id" value="${comment?.id}" />
-                                                            <g:hiddenField name="mId" value="${movieInstance?.id}" />
-                                                            <g:hiddenField name="gId" value="${gId}" />
-                                                            <p><g:actionSubmit value="Eliminar" name="submit" action="delete"></g:actionSubmit>
-                                                        </g:if>
-
-                                                    </p>
-
-                                                </fieldset>
-
-                                            </g:form>
-
-
-                                        </div>
-                                    </div>
-                                </g:each>
-                            </div>
-                        </g:if>
                     </li>
 
                 </ul>
             </div>
             </g:if>
 
-            <g:render template="../layouts/footer"></g:render>
+            <g:render template="../layouts/footer"/>
 
         </div>
     </footer>

@@ -2,34 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80bbec5a-ee43-4207-838a-dc221b4b15c4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/img/movierate.png" />
-      <change type="DELETED" beforePath="C:\cygwin\home\slanus\movierate\web-app\img\dummies\featured-1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\cygwin\home\slanus\movierate\web-app\img\dummies\featured-10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\cygwin\home\slanus\movierate\web-app\img\dummies\featured-2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\cygwin\home\slanus\movierate\web-app\img\dummies\featured-3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\cygwin\home\slanus\movierate\web-app\img\dummies\featured-4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\cygwin\home\slanus\movierate\web-app\img\dummies\featured-5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\cygwin\home\slanus\movierate\web-app\img\dummies\featured-6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\cygwin\home\slanus\movierate\web-app\img\dummies\featured-7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\cygwin\home\slanus\movierate\web-app\img\dummies\featured-8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\cygwin\home\slanus\movierate\web-app\img\dummies\featured-9.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/codeon/movierate/movie/MovieController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/codeon/movierate/movie/MovieController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/_group_header.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/_group_header.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/_index_header.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/_index_header.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/_movies_header.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/_movies_header.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/js/application.js" afterPath="$PROJECT_DIR$/web-app/js/application.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/css/comments.css" afterPath="$PROJECT_DIR$/web-app/css/comments.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/register/index.gsp" afterPath="$PROJECT_DIR$/grails-app/views/register/index.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movierate-grailsPlugins.iml" afterPath="$PROJECT_DIR$/movierate-grailsPlugins.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/userGroup/show.gsp" afterPath="$PROJECT_DIR$/grails-app/views/userGroup/show.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/movie/show.gsp" afterPath="$PROJECT_DIR$/grails-app/views/movie/show.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/css/style.css" afterPath="$PROJECT_DIR$/web-app/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MovieRate.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$USER_HOME$/.grails/" />
-    <file path="/Dummy.txt" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369589481606" ignored="false" />
-    <file path="/a.dummy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369589481220" ignored="false" />
+    <file path="/Dummy.txt" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369592384957" ignored="false" />
+    <file path="/a.dummy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369598565859" ignored="false" />
     <file path="/BootStrap.groovy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369589358306" ignored="false" />
     <file path="/User.groovy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369531060116" ignored="false" />
     <file path="/register.gsp" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369534841188" ignored="false" />
@@ -55,21 +40,21 @@
     <file path="$PROJECT_DIR$/../grails/grails-petclinic-master/grails-app/views/clinic/tutorial.gsp" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1364579631334" ignored="false" />
     <file path="/Person.groovy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1364946368886" ignored="false" />
     <file path="/list.gsp" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369516775212" ignored="false" />
-    <file path="/MovieController.groovy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369511513688" ignored="false" />
+    <file path="/MovieController.groovy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369597820383" ignored="false" />
     <file path="$PROJECT_DIR$/../grails/grails-petclinic-master/target/2.2.1/resources/web.xml" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1364590134798" ignored="false" />
     <file path="$USER_HOME$/.IntelliJIdea12/config/options/debugger.frameview.xml" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1364595708781" ignored="false" />
-    <file path="/show.gsp" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369520732324" ignored="false" />
+    <file path="/show.gsp" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369598561487" ignored="false" />
     <file path="/Groovy Console" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1364932348340" ignored="false" />
     <file path="/UserGroup.groovy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1368890534444" ignored="false" />
     <file path="$USER_HOME$/Desktop/Personal/PDMS/grails-app/conf/UrlMappings.groovy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1366586034307" ignored="false" />
     <file path="/UrlMappings.groovy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1368398389056" ignored="false" />
     <file path="/IndexController.groovy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1368398641729" ignored="false" />
     <file path="/index.gsp" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369534139878" ignored="false" />
-    <file path="/style.css" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369532351792" ignored="false" />
+    <file path="/style.css" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369598579429" ignored="false" />
     <file path="$PROJECT_DIR$/../grails/grails-petclinic-master/grails-app/views/owner/find.gsp" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1367182824300" ignored="false" />
     <file path="/OwnerController.groovy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1367183142618" ignored="false" />
     <file path="$PROJECT_DIR$/../grails/grails-petclinic-master/grails-app/controllers/org/grails/samples/OwnerController.groovy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1367183146351" ignored="false" />
-    <file path="/Dummy.groovy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369529553934" ignored="false" />
+    <file path="/Dummy.groovy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369597694145" ignored="false" />
     <file path="/UserGroupController.groovy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369510819552" ignored="false" />
     <file path="/_form.gsp" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369508156757" ignored="false" />
     <file path="/edit.gsp" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369532510848" ignored="false" />
@@ -84,7 +69,7 @@
     <file path="/CommentController.groovy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1368893023024" ignored="false" />
     <file path="/_assign.gsp" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1368937406028" ignored="false" />
     <file path="/RegisterController.groovy" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369534337721" ignored="false" />
-    <file path="/comments.css" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369533109647" ignored="false" />
+    <file path="/comments.css" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369594473175" ignored="false" />
     <file path="/create.gsp" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369532315260" ignored="false" />
     <file path="/_index_header.gsp" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369590959283" ignored="false" />
     <file path="/index2.gsp" changelist="80bbec5a-ee43-4207-838a-dc221b4b15c4" time="1369534573451" ignored="false" />
@@ -220,35 +205,7 @@
     <favorites_list name="MovieRate" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="_group_header.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/_group_header.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="84" selection-start="146" selection-end="146" vertical-scroll-proportion="-1.9615384">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_index_header.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/_index_header.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="23" selection-start="435" selection-end="435" vertical-scroll-proportion="-5.8846154">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_movies_header.gsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/_movies_header.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="104" selection-start="166" selection-end="166" vertical-scroll-proportion="0.107368425">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -267,22 +224,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/grails-app/views/userGroup/create.gsp" />
-        <option value="$PROJECT_DIR$/web-app/css/style.css" />
         <option value="$PROJECT_DIR$/grails-app/views/userGroup/edit.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/register/index.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/register/index2.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/layouts/register.gsp" />
         <option value="$USER_HOME$/.grails/2.2.1/projects/MovieRate/plugins/spring-security-ui-0.2/grails-app/controllers/grails/plugins/springsecurity/ui/RegisterController.groovy" />
-        <option value="$PROJECT_DIR$/web-app/css/comments.css" />
         <option value="$PROJECT_DIR$/grails-app/views/userGroup/show.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/com/codeon/movierate/movie/MovieController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/layouts/_index_header.gsp" />
         <option value="$USER_HOME$/.grails/2.2.1/projects/MovieRate/plugins/spring-security-ui-0.2/grails-app/controllers/grails/plugins/springsecurity/ui/UserController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/layouts/_group_header.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/layouts/_movies_header.gsp" />
+        <option value="$PROJECT_DIR$/web-app/css/comments.css" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/codeon/movierate/movie/MovieController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/movie/show.gsp" />
+        <option value="$PROJECT_DIR$/web-app/css/style.css" />
       </list>
     </option>
   </component>
@@ -428,7 +385,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
+              <option name="myItemId" value="userGroup" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -443,6 +400,142 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="grails-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="register" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MovieRate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="movierate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grails-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="index" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MovieRate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="movierate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grails-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MovieRate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="movierate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grails-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MovieRate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="movierate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grails-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="movierate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MovieRate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="movierate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grails-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="movierate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="movie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MovieRate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="movierate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grails-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="movierate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -637,25 +730,25 @@
     <frame x="-284" y="-1088" width="1936" height="1096" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43876463" sideWeight="0.49786553" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43970117" sideWeight="0.49786553" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25299147" sideWeight="0.49675852" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2529349" sideWeight="0.49675852" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40681577" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40661687" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3264" sideWeight="0.5007576" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13636364" sideWeight="0.713799" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42705005" sideWeight="0.493517" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42689434" sideWeight="0.493517" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.098185696" sideWeight="0.7199148" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32887402" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32649574" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13180363" sideWeight="0.34044823" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46934226" sideWeight="0.4939394" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13180363" sideWeight="0.33511207" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2673426" sideWeight="0.56123537" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14140876" sideWeight="0.5602988" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15261473" sideWeight="0.6353322" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32649574" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24919957" sideWeight="0.8399146" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -728,104 +821,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/views/movie/show.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="31" selection-start="138" selection-end="138" vertical-scroll-proportion="-1.5714285" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/userGroup/show.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="44" selection-start="1202" selection-end="1202" vertical-scroll-proportion="-0.048710603" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/movie/list.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/codeon/movierate/movie/MovieController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/DataSource.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="20" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.grails/2.2.1/projects/MovieRate/plugins/spring-security-ui-0.2/grails-app/controllers/grails/plugins/springsecurity/ui/RegisterController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="29" selection-start="1825" selection-end="1825" vertical-scroll-proportion="-7.2992125">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/codeon/movierate/register/RegisterController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="6" selection-start="123" selection-end="123" vertical-scroll-proportion="-2.9565217">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/BootStrap.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="0" selection-start="2001" selection-end="2001" vertical-scroll-proportion="26.52">
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/LoginController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="6" selection-start="677" selection-end="677" vertical-scroll-proportion="-0.53543305">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/LogoutController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="6" selection-start="84" selection-end="84" vertical-scroll-proportion="0.06692913">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/codeon/movierate/group/UserGroupController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="4" selection-start="295" selection-end="333" vertical-scroll-proportion="0.13385826">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.grails/2.2.1/projects/MovieRate/plugins/spring-security-ui-0.2/grails-app/controllers/grails/plugins/springsecurity/ui/UserController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="24" selection-start="1066" selection-end="1066" vertical-scroll-proportion="0.26771653">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/_group_header.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="84" selection-start="146" selection-end="146" vertical-scroll-proportion="-1.9615384">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/_index_header.gsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="23" selection-start="435" selection-end="435" vertical-scroll-proportion="-5.8846154">
@@ -835,7 +830,101 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/_movies_header.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="104" selection-start="166" selection-end="166" vertical-scroll-proportion="0.107368425">
+        <state line="3" column="104" selection-start="166" selection-end="166" vertical-scroll-proportion="0.10119048">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.grails/2.2.1/projects/MovieRate/plugins/database-migration-1.3.2/LICENSE.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="68" selection-start="2696" selection-end="2696" vertical-scroll-proportion="0.3323442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/register/index.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="40" selection-start="497" selection-end="513" vertical-scroll-proportion="2.7142856">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/userGroup/edit.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="40" selection-start="2144" selection-end="2420" vertical-scroll-proportion="-10.755102">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/css/comments.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="121" selection-start="859" selection-end="859" vertical-scroll-proportion="0.5089021">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/codeon/movierate/movie/Comment.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="6" selection-start="278" selection-end="278" vertical-scroll-proportion="-3.3333333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/codeon/movierate/movie/CommentController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="6" selection-start="194" selection-end="194" vertical-scroll-proportion="-0.73913044">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/codeon/movierate/main/IndexController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="22" selection-start="776" selection-end="776" vertical-scroll-proportion="-15.521739">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/codeon/movierate/movie/MovieController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="97" selection-start="2855" selection-end="2855" vertical-scroll-proportion="-18.956522">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/userGroup/show.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="51" selection-start="1577" selection-end="1577" vertical-scroll-proportion="-7.6734695">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/sectional.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="21" selection-start="355" selection-end="355" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/movie/show.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="65" selection-start="3356" selection-end="3375" vertical-scroll-proportion="-4.591837">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/index/index.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="104" selection-start="3190" selection-end="3190" vertical-scroll-proportion="-4.244898">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="772" column="0" selection-start="12926" selection-end="12926" vertical-scroll-proportion="0.5161787">
           <folding />
         </state>
       </provider>
