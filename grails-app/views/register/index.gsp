@@ -40,7 +40,7 @@
                                     <input name="password" type="password" class="form-poshytip" title="Ingrese su contrase&ntilde;a" placeholder="Contrase&ntilde;a" />
                                 </div>
                                 <div>
-                                    <input name="password2" type="password" class="form-poshytip" title="Ingrese su contrase&ntilde;a" placeholder="Contrase&ntilde;a" />
+                                    <input name="password2" type="password" class="form-poshytip" title="Confirme su contrase&ntilde;a" placeholder="Confirmar Contrase&ntilde;a" />
                                 </div>
 
                                 <p><input type="submit" value="Registrarse" name="submit" /></p>
