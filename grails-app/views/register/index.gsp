@@ -5,7 +5,7 @@
 
 <body lang="en">
 
-<g:render template="../layouts/index_header"/>
+<g:render template="../layouts/register_header"/>
 
 <!-- MAIN -->
 <div id="main">

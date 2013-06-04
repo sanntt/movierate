@@ -339,6 +339,7 @@
 
 .normalButton,
 #normalForm input[type="submit"],
+#normalForm input[type="button"],
 #registerForm input[type="submit"],
 #loginForm input[type="submit"],
 #loginForm input[type="button"] {
